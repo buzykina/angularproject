@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms'; 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 
@@ -10,7 +10,8 @@ import { EmployeesComponent } from './employees/employees.component';
     EmployeesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
