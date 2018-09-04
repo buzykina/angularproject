@@ -1,12 +1,12 @@
 <div *ngFor = "let employee of employees">
-<h2>{{employee.lastname | uppercase}} {{employee.firstname | uppercase}} Details</h2>
+<h4>Details of {{employee.firstname}} {{employee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{employee.id}}</div>
-<div><span>lastname: </span>{{employee.lastname}}</div>
 <div>
-  <label>firstname:
+  <label>First Name:
     <input [(ngModel)]="employee.firstname" placeholder="name">
   </label>
 </div>
+<div><span>Last name: </span>{{employee.lastname}}</div>
 <div><span>DOB: </span>{{employee.birthday | date}}</div>
-<div><span>gender: </span>{{employee.gender}}</div>
+<div><span>Gender: </span>{{employee.gender}}</div>
 </div>
