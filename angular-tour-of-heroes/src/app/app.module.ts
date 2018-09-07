@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms'; 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -15,7 +15,9 @@ import { FormsModule } from '@angular/forms'; //Angular ngModel imported from he
   ],
   imports: [
     BrowserModule,
+
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
