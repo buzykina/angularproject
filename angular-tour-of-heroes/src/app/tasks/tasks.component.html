@@ -1,6 +1,7 @@
-<h2>My tasks</h2>
+
+<h2>List of tasks: </h2>
 <ul class="tasks">
 	<li *ngFor="let task of tasks">
-		<span class="badge">{{tasks.id}}</span> {{tasks.name}}
+		<div class="container">{{task.id}}<span>.</span>{{task.name}}</div>
 	</li>
 </ul>
