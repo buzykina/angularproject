@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from '../task';
-import {Tasks} from '../mock-tasks';
+import {TASKS} from '../mock-tasks';
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -8,7 +9,7 @@ import {Tasks} from '../mock-tasks';
 })
 export class TasksComponent implements OnInit {
  
-  	tasks = Tasks;
+  	tasks = TASKS;
 
 
   constructor() { }
