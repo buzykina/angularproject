@@ -18,8 +18,7 @@ implements OnInit {
   }
 addEmployee(id,fname,lname,gender,dob)
 {
-console.log(id,fname,lname,gender,dob,show);
-	this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false } );
+  this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false } );
 }
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
