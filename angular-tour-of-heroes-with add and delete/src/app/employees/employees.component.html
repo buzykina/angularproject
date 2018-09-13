@@ -1,12 +1,33 @@
-<div *ngFor = "let employee of employees">
-<h4>Details of {{employee.firstname}} {{employee.lastname | uppercase}}: </h4>
-<div><span>id: </span>{{employee.id}}</div>
+<h3>List of employees</h3>
+<ul class = "employees">
+<li *ngFor = "let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+    <span class="badge">{{employee.id}}</span> {{employee.lastname}}
+  </li>
+</ul>
+<div *ngIf="selectedEmployee">
+	<h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
+<div><span>id: </span>{{selectedEmployee.id}}</div>
 <div>
   <label>First Name:
-    <input [(ngModel)]="employee.firstname" placeholder="name">
+    <input [(ngModel)]="selectedEmployee.firstname" placeholder="name">
   </label>
 </div>
-<div><span>Last name: </span>{{employee.lastname}}</div>
-<div><span>DOB: </span>{{employee.birthday | date}}</div>
-<div><span>Gender: </span>{{employee.gender}}</div>
-</div>
+<div><span>Last name: </span>{{selectedEmployee.lastname}}</div>
+<div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
+<div><span>Gender: </span>{{selectedEmployee.gender}}</div>
+  </div>
+<button>View details</button>
+<h1>Add an employee</h1>
+  <form name="emploeeform" ng-submit="addEmployee(empName.value)">
+  	<label>Id:</label>
+     <input type="number" name="empId" #empId required /><br>
+  	<label>First Name:</label>
+     <input type="text" name="empFName" #empFName required /><br>
+     <label>Last Name:</label>
+     <input type="text" name="empLName" #empLName required /><br>
+     <label>Gender:</label>
+     <input type="text" name="empGender" #empGender required /><br>
+     <label>Birthday:</label>
+     <input type="text" name="empDOB" #empDOB required /><br>
+     <button (click)="addEmployee(empId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">Add</button>
+  </form>
