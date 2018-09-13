@@ -16,4 +16,16 @@ export class DepartmentsComponent implements OnInit {
   ngOnInit() {
   }
 
+add(id: number,name: string,building: string,nrofemployees: number): void {
+	this.departments.push({ id: id, name: name, building: building, nrofemployees:nrofemployees});
 }
+
+delete(i) { 
+ let arr = this.departments; 
+ arr = arr.filter( (x) => x.id != i);
+ this.departments = arr;
+}  
+
+}
+
+
