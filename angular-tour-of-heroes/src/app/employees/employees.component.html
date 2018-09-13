@@ -5,6 +5,9 @@
   </li>
 </ul>
 <button (click)="view(selectedEmployee);">View details</button>
+<button (click)="modify(selectedEmployee);">
+    Modify info
+  </button>
 <button (click)="delete(selectedEmployee);">
     Delete
   </button>
@@ -12,13 +15,22 @@
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{selectedEmployee.id}}</div>
 <div>
-  <label>First Name:
-    <input [(ngModel)]="selectedEmployee.firstname" placeholder="name">
-  </label>
+  <span>First name: </span>{{selectedEmployee.firstname}}
 </div>
 <div><span>Last name: </span>{{selectedEmployee.lastname}}</div>
 <div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
 <div><span>Gender: </span>{{selectedEmployee.gender}}</div>
+  </div>
+ <div *ngIf="selectedEmployee && selectedEmployee.modify">
+  <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
+<div><span>id: </span>{{selectedEmployee.id}}</div>
+<div>
+  <span>First name: </span>
+  <input [(ngModel)]="selectedEmployee.firstname" placeholder="first name">
+</div>
+<div><span>Last name: </span><input [(ngModel)]="selectedEmployee.lastname" placeholder="last name"></div>
+<div><span>DOB: </span><input [(ngModel)]="selectedEmployee.birthday" placeholder="DOB mm/dd/yy"></div>
+<div><span>Gender: </span><input [(ngModel)]="selectedEmployee.gender" placeholder="gender"></div>
   </div>
 <h2>Add an employee</h2>
   <form name="emploeeform" ng-submit="addEmployee(empName.value)">

@@ -18,7 +18,7 @@ implements OnInit {
   }
 addEmployee(id,fname,lname,gender,dob)
 {
-  this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false } );
+  this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false, modify: false } );
 }
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
@@ -26,6 +26,7 @@ addEmployee(id,fname,lname,gender,dob)
 delete(i) { 
  let arr = this.employees; 
  i.show = false;
+ i.modify = false;
  arr = arr.filter( (x) => x != i);
  this.employees = arr;
 } 
@@ -34,5 +35,9 @@ view(selectedEmployee)
   console.log(selectedEmployee.show);
   selectedEmployee.show = true;
 }
-
+modify(selectedEmployee)
+{
+  console.log(selectedEmployee.show);
+  selectedEmployee.modify = true;
+}
 }

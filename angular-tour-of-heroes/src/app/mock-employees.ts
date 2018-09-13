@@ -7,7 +7,8 @@ export const Employees: Employee[] = [
         firstname: 'Yevheniia',
         gender: 'Female',
         birthday: "1999/12/29",
-        show: false
+        show: false,
+        modify: false
       },
       { 
       id: 2,
@@ -15,7 +16,8 @@ export const Employees: Employee[] = [
         firstname: 'Mihai',
         gender: 'Male',
         birthday: "1999/03/12",
-        show: false
+        show: false,
+        modify: false
       },
       { 
       id: 3,
@@ -23,6 +25,7 @@ export const Employees: Employee[] = [
         firstname: 'Rahul',
         gender: 'Male',
         birthday: "1999/08/29",
-        show: false
+        show: false,
+        modify: false
       }
   ];
