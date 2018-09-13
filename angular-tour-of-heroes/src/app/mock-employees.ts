@@ -6,20 +6,23 @@ export const Employees: Employee[] = [
         lastname: 'Buzykina',
         firstname: 'Yevheniia',
         gender: 'Female',
-        birthday: "1999/12/29"
+        birthday: "1999/12/29",
+        show: false
       },
       { 
       id: 2,
         lastname: 'Jizdan',
         firstname: 'Mihai',
         gender: 'Male',
-        birthday: "1999/03/12"
+        birthday: "1999/03/12",
+        show: false
       },
       { 
       id: 3,
         lastname: 'Annadurai',
         firstname: 'Rahul',
         gender: 'Male',
-        birthday: "1999/08/29"
+        birthday: "1999/08/29",
+        show: false
       }
   ];

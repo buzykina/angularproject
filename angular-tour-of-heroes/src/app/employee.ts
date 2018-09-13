@@ -4,4 +4,5 @@ export class Employee {
   firstname: string;
   gender: string;
   birthday: string;
+  show:boolean;
 }

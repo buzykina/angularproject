@@ -4,8 +4,12 @@
     <span class="badge">{{employee.id}}</span> {{employee.lastname}}
   </li>
 </ul>
-<div *ngIf="selectedEmployee">
-	<h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
+<button (click)="view(selectedEmployee);">View details</button>
+<button (click)="delete(selectedEmployee);">
+    Delete
+  </button>
+ <div *ngIf="selectedEmployee && selectedEmployee.show">
+  <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{selectedEmployee.id}}</div>
 <div>
   <label>First Name:
@@ -16,8 +20,7 @@
 <div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
 <div><span>Gender: </span>{{selectedEmployee.gender}}</div>
   </div>
-<button>View details</button>
-<h1>Add an employee</h1>
+<h2>Add an employee</h2>
   <form name="emploeeform" ng-submit="addEmployee(empName.value)">
   	<label>Id:</label>
      <input type="number" name="empId" #empId required /><br>
