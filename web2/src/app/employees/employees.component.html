@@ -4,12 +4,15 @@
     <span class="badge">{{employee.id}}</span> {{employee.lastname}}
   </li>
 </ul>
-<button (click)="view(selectedEmployee);">View details</button>
-<button (click)="modify(selectedEmployee);">
+<button class="janebtn" (click)="selectedEmployee.show = true; selectedEmployee.modify = false; variables.add = false;">View details</button>
+<button class="janebtn" (click)="selectedEmployee.modify = true; selectedEmployee.show = false; variables.add = false;">
     Modify info
   </button>
-<button (click)="delete(selectedEmployee);">
+<button class="janebtn" (click)="delete(selectedEmployee);">
     Delete
+  </button>
+  <button class="janebtn" (click)="variables.add = true; selectedEmployee.modify = false; selectedEmployee.show = false;">
+    Add
   </button>
  <div *ngIf="selectedEmployee && selectedEmployee.show">
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
@@ -31,7 +34,9 @@
 <div><span>Last name: </span><input [(ngModel)]="selectedEmployee.lastname" placeholder="last name"></div>
 <div><span>DOB: </span><input [(ngModel)]="selectedEmployee.birthday" placeholder="DOB mm/dd/yy"></div>
 <div><span>Gender: </span><input [(ngModel)]="selectedEmployee.gender" placeholder="gender"></div>
+<button class="janebtn" (click)="selectedEmployee.modify = false;">Done</button>
   </div>
+<div *ngIf="variables.add">
 <h2>Add an employee</h2>
   <form name="emploeeform" ng-submit="addEmployee(empName.value)">
   	<label>Id:</label>
@@ -44,5 +49,6 @@
      <input type="text" name="empGender" #empGender required /><br>
      <label>Birthday:</label>
      <input type="text" name="empDOB" #empDOB required /><br>
-     <button (click)="addEmployee(empId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">Add</button>
+     <button class="janebtn" (click)="addEmployee(empId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">Done</button>
   </form>
+</div>

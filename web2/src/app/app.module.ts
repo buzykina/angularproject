@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { FormsModule } from '@angular/forms';
-import { DepartmentsComponent } from './departments/departments.component'; //Angular ngModel imported from here.
+import { DepartmentsComponent } from './departments/departments.component';//Angular ngModel imported from here.
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { DepartmentsComponent } from './departments/departments.component'; //An
     AppComponent,
     EmployeesComponent,
     TasksComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
   ],
   imports: [
     BrowserModule,
