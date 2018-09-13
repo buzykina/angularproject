@@ -4,17 +4,7 @@
     <span class="badge">{{employee.id}}</span> {{employee.lastname}}
   </li>
 </ul>
-<button class="janebtn" (click)="selectedEmployee.show = true; selectedEmployee.modify = false; variables.add = false;">View details</button>
-<button class="janebtn" (click)="selectedEmployee.modify = true; selectedEmployee.show = false; variables.add = false;">
-    Modify info
-  </button>
-<button class="janebtn" (click)="delete(selectedEmployee);">
-    Delete
-  </button>
-  <button class="janebtn" (click)="variables.add = true; selectedEmployee.modify = false; selectedEmployee.show = false;">
-    Add
-  </button>
- <div *ngIf="selectedEmployee && selectedEmployee.show">
+ <div class = "display" *ngIf="selectedEmployee && selectedEmployee.show">
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{selectedEmployee.id}}</div>
 <div>
@@ -24,7 +14,7 @@
 <div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
 <div><span>Gender: </span>{{selectedEmployee.gender}}</div>
   </div>
- <div *ngIf="selectedEmployee && selectedEmployee.modify">
+ <div class = "display" *ngIf="selectedEmployee && selectedEmployee.modify">
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{selectedEmployee.id}}</div>
 <div>
@@ -36,19 +26,31 @@
 <div><span>Gender: </span><input [(ngModel)]="selectedEmployee.gender" placeholder="gender"></div>
 <button class="janebtn" (click)="selectedEmployee.modify = false;">Done</button>
   </div>
-<div *ngIf="variables.add">
+<div class = "display" *ngIf="variables.add">
 <h2>Add an employee</h2>
   <form name="emploeeform" ng-submit="addEmployee(empName.value)">
   	<label>Id:</label>
-     <input type="number" name="empId" #empId required /><br>
+     <input type="number" name="empId" placeholder="id" #empId required /><br>
   	<label>First Name:</label>
-     <input type="text" name="empFName" #empFName required /><br>
+     <input type="text" placeholder="first name" name="empFName" #empFName required /><br>
      <label>Last Name:</label>
-     <input type="text" name="empLName" #empLName required /><br>
+     <input type="text" placeholder="last name" name="empLName" #empLName required /><br>
      <label>Gender:</label>
-     <input type="text" name="empGender" #empGender required /><br>
+     <input type="text" placeholder="gender" name="empGender" #empGender required /><br>
      <label>Birthday:</label>
-     <input type="text" name="empDOB" #empDOB required /><br>
+     <input type="text" placeholder="DOB mm/dd/yy" name="empDOB" #empDOB required /><br>
      <button class="janebtn" (click)="addEmployee(empId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">Done</button>
   </form>
+</div>
+<div>
+<button class="janebtn" (click)="selectedEmployee.show = true; selectedEmployee.modify = false; variables.add = false;">View details</button>
+<button class="janebtn" (click)="selectedEmployee.modify = true; selectedEmployee.show = false; variables.add = false;">
+    Modify info
+  </button>
+<button class="janebtn" (click)="delete(selectedEmployee);">
+    Delete
+  </button>
+  <button class="janebtn" (click)="variables.add = true; selectedEmployee.modify = false; selectedEmployee.show = false;">
+    Add
+  </button>
 </div>
