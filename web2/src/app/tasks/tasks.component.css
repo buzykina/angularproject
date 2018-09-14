@@ -1,47 +1,59 @@
-* {
-	text-align: left;
-	padding: 0;
-}
-
 .selected {
-	background-color: red;
+  background-color: #CFD8DC !important;
+  color: white;
 }
-
 .tasks {
-	display: inline-block
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+  display:inline-block;
 }
-
 .tasks li {
-	cursor: pointer;
-	border-radius: 4px;
-	width: 100%;
-	list-style: none;
-	border: 1px solid black;
-	margin-bottom: 5px;
-	font-size: 150%;
-	background-color: #bdc3c7;
-	transition: background-color 0.2s;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
 }
+.display{
+  display: inline-block;
+  margin: -30px 0px 0px 30px;
 
+}
+.tasks li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
 .tasks li:hover {
-	background-color: red;
-	transition: background-color 0.2s;
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
 }
-
-
-.tasks li.selected {
-	background-color: red;
-	color: white;
-	transition: color 0.2s background-color 1s;
+.tasks.text {
+  position: relative;
+  top: -3px;
 }
-
-.display {
-	font-size: 150%;
+.tasks .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
 }
-
-.btn {
-	border-radius: 15px;
-	display: inline-block;
-	margin: 0 15px;
+.btn{
+      margin: 0px 20px 0px 10px;
 }
+#addbtn{
 
+}

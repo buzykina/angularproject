@@ -10,6 +10,7 @@ import {TASKS} from '../mock-tasks';
 export class TasksComponent implements OnInit {
  
   	tasks = TASKS;
+    variable = false;
 
   	selectedTask : Task;
 
@@ -20,9 +21,12 @@ export class TasksComponent implements OnInit {
 constructor() { }
   
   ngOnInit() {
-  
+
   }
-  
+
+  addTask(ID,Name) {
+    this.tasks.push ({id: ID, name: Name});
+  }  
 
   delete(i) {
    let arr = this.tasks; 

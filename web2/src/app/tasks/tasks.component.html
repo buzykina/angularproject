@@ -2,7 +2,7 @@
 
 <ul class="tasks">
 	<li *ngFor="let task of tasks"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
-		<span class="row">{{task.id}}</span> {{task.name}}
+		<span class="badge">{{task.id}}</span> {{task.name}}
 	</li>
 </ul>
 
@@ -41,13 +41,21 @@
 
 </div>
 
+<div class="display" *ngIf="variable == true && selectedTask == null">
+	<form name="taskForm" ng-submit="addTask(taskName)">
+			<h2> Add a task</h2>
+			<label>ID: </label> <input type="number" placeholder="ID" name="taskID" #taskID required>
+			<label>Name: </label> <input type="text" placeholder="name" name="taskName" #taskName required>
+			<button class="btn" (click)="addTask(taskID.value,taskName.value)">Add</button>
+	</form>
 
+</div>
 
 <br>
 
-<button class="btn" (click)="selectedTask.show = true; selectedTask.Add = false; selectedTask.Modify = false;">Display more details</button> 
-<button class="btn" (click)="selectedTask.show = false; selectedTask.Add = false; selectedTask.Modify = true;">Modify the task</button> 
-<button class="btn" >Add task</button> 
+<button class="btn" (click)="selectedTask.show = true; selectedTask.Add = false; selectedTask.Modify = false; variable = false;">Display more details</button>
+<button class="btn" (click)="selectedTask.show = false; selectedTask.Add = false; selectedTask.Modify = true; variable = false;">Modify the task</button> 
+<button class="btn" (click)="variable = true; selectedTask.show = false; selectedTask.Add = false; selectedTask.Modify = false; selectedTask = null;">Add task</button> 
 <button class="btn" (click)=delete(selectedTask)>Delete task</button> 
 
 
