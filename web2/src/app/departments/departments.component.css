@@ -1,18 +1,10 @@
 /* HeroesComponent's private CSS styles */
-h3 {
-  margin-bottom: 0;
-  padding: 0;
-}
-
-h4{
-  margin: 0;
-}
 .selected {
   background-color: #CFD8DC !important;
   color: white;
 }
 .employees {
-  margin: 1em 0 2em 0;
+  margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
@@ -31,8 +23,7 @@ h4{
 .display{
   display: inline-block;
   position: relative;
-  margin-left: 30px;
-
+  bottom: 160px;
 
 }
 .employees li.selected:hover {
@@ -63,31 +54,12 @@ h4{
   border-radius: 4px 0 0 4px;
 }
 .janebtn{
-      cursor: pointer;
       margin: 0px 20px 0px 10px;
-      border-radius: 5px;
-      padding: 0 10px;
-      background-color: transparent;
-      border: 1px solid black;
-      color: black;
-      font-size: 110%;
-      transition: background-color 0.5s ;
+}
+#addbtn{
+
 }
 
-.janebtn:hover {
-  background-color: #607D8B;
-  color: white;
-  transition: background-color 0.5s;
-}
-
-.side{
-  margin-left:100%;
-}
-.side1
-{
-  top: 30px;
-  padding-top: 0;
-}
 
 /*
 Copyright 2017-2018 Google Inc. All Rights Reserved.
