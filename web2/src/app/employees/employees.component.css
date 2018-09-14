@@ -1,4 +1,7 @@
 /* HeroesComponent's private CSS styles */
+h4{
+  margin: 0;
+}
 .selected {
   background-color: #CFD8DC !important;
   color: white;

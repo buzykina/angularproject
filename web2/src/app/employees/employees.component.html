@@ -1,9 +1,11 @@
 <h3>List of employees</h3>
+
 <ul class = "employees">
 <li *ngFor = "let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
     <span class="badge">{{employee.id}}</span> {{employee.lastname}}
   </li>
 </ul>
+
  <div class = "display" *ngIf="selectedEmployee && selectedEmployee.show">
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{selectedEmployee.id}}</div>
@@ -14,6 +16,7 @@
 <div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
 <div><span>Gender: </span>{{selectedEmployee.gender}}</div>
   </div>
+
  <div class = "display" *ngIf="selectedEmployee && selectedEmployee.modify">
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
 <div><span>id: </span>{{selectedEmployee.id}}</div>
@@ -26,8 +29,9 @@
 <div><span>Gender: </span><input [(ngModel)]="selectedEmployee.gender" placeholder="gender"></div>
 <button class="janebtn" (click)="selectedEmployee.modify = false;">Done</button>
   </div>
+
 <div class = "display" *ngIf="variables.add">
-<h2>Add an employee</h2>
+<h4>Add an employee</h4>
   <form name="emploeeform" ng-submit="addEmployee(empName.value)">
   	<label>Id:</label>
      <input type="number" name="empId" placeholder="id" #empId required /><br>
@@ -42,6 +46,7 @@
      <button class="janebtn" (click)="addEmployee(empId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">Done</button>
   </form>
 </div>
+
 <div>
 <button class="janebtn" (click)="selectedEmployee.show = true; selectedEmployee.modify = false; variables.add = false;">View details</button>
 <button class="janebtn" (click)="selectedEmployee.modify = true; selectedEmployee.show = false; variables.add = false;">

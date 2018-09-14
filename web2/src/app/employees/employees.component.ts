@@ -26,6 +26,8 @@ addEmployee(id,fname,lname,gender,dob)
 }
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
+    this.selectedEmployee.modify = false;
+    this.selectedEmployee.show = false;
   }
 delete(i) { 
  let arr = this.employees; 
