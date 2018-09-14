@@ -16,6 +16,8 @@ export class TasksComponent implements OnInit {
 
   	onSelect(task : Task) {
   		this.selectedTask = task;
+      this.selectedTask.show = false;
+      this.selectedTask.Modify = false;
   	}
   
 constructor() { }
@@ -24,8 +26,8 @@ constructor() { }
 
   }
 
-  addTask(ID,Name) {
-    this.tasks.push ({id: ID, name: Name});
+  addTask(ID,Name,) {
+    this.tasks.push ({id: ID, name: Name, Modify: false, show: false});
   }  
 
   delete(i) {
