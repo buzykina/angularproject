@@ -1,7 +1,53 @@
+<h2> List of tasks </h2>
 
-<h2>List of tasks: </h2>
 <ul class="tasks">
-	<li *ngFor="let task of tasks">
-		<div class="container">{{task.id}}<span>.</span>{{task.name}}</div>
+	<li *ngFor="let task of tasks"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
+		<span class="row">{{task.id}}</span> {{task.name}}
 	</li>
 </ul>
+
+
+
+
+<div *ngIf="selectedTask && selectedTask.show" class="display">
+
+	<h2>{{selectedTask.name | uppercase}} Details</h2>
+
+	<div>
+		<span>ID: </span>{{selectedTask.id}}
+	</div>
+
+	<div>
+	  <label>Name:
+	    <span>  {{selectedTask.name}} </span>
+	  </label>
+	</div>
+
+</div>
+
+<div *ngIf="selectedTask && selectedTask.Modify" class="display">
+
+	<h2>{{selectedTask.name | uppercase}} Details</h2>
+
+	<div>
+		<span>ID: </span>{{selectedTask.id}}
+	</div>
+
+	<div>
+	  <label>Name:
+	    <input [(ngModel)]="selectedTask.name" placeholder="name">
+	  </label>
+	</div>
+
+</div>
+
+
+
+<br>
+
+<button class="btn" (click)="selectedTask.show = true; selectedTask.Add = false; selectedTask.Modify = false;">Display more details</button> 
+<button class="btn" (click)="selectedTask.show = false; selectedTask.Add = false; selectedTask.Modify = true;">Modify the task</button> 
+<button class="btn" >Add task</button> 
+<button class="btn" (click)=delete(selectedTask)>Delete task</button> 
+
+

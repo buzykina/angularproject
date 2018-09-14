@@ -11,11 +11,33 @@ export class TasksComponent implements OnInit {
  
   	tasks = TASKS;
 
+  	selectedTask : Task;
 
-  constructor() { }
+  	onSelect(task : Task) {
+  		this.selectedTask = task;
+  	}
+  
+constructor() { }
   
   ngOnInit() {
+  
+  }
+  
+
+  delete(i) {
+   let arr = this.tasks; 
+   i.show = false;
+   i.modify = false;
+   arr = arr.filter( (x) => x != i);
+   this.tasks = arr;
+   this.selectedTask = null;
   }
 
-  
 }
+
+
+  
+
+
+  
+ 

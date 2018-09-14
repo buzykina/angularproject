@@ -1,11 +1,47 @@
 * {
 	text-align: left;
+	padding: 0;
+}
+
+.selected {
+	background-color: red;
 }
 
 .tasks {
-	list-style: none;
+	display: inline-block
 }
 
-.container {
-	text-align: left;
+.tasks li {
+	cursor: pointer;
+	border-radius: 4px;
+	width: 100%;
+	list-style: none;
+	border: 1px solid black;
+	margin-bottom: 5px;
+	font-size: 150%;
+	background-color: #bdc3c7;
+	transition: background-color 0.2s;
 }
+
+.tasks li:hover {
+	background-color: red;
+	transition: background-color 0.2s;
+}
+
+
+.tasks li.selected {
+	background-color: red;
+	color: white;
+	transition: color 0.2s background-color 1s;
+}
+
+.display {
+	font-size: 150%;
+}
+
+.btn {
+	border-radius: 15px;
+	display: inline-block;
+	margin: 0 15px;
+}
+
