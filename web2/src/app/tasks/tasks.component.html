@@ -46,7 +46,7 @@
 			<h2> Add a task</h2>
 			<label>ID: </label> <input type="number" placeholder="ID" name="taskID" #taskID required>
 			<label>Name: </label> <input type="text" placeholder="name" name="taskName" #taskName required>
-			<button class="btn" (click)="addTask(taskID.value,taskName.value)">Add</button>
+			<button class="btn" (click)="addTask(taskID.value,taskName.value); variable = false;">Add</button>
 	</form>
 
 </div>

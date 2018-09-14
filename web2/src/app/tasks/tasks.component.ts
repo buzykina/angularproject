@@ -16,6 +16,8 @@ export class TasksComponent implements OnInit {
 
   	onSelect(task : Task) {
   		this.selectedTask = task;
+      this.selectedTask.show = false;
+      this.selectedTask.Modify = false;
   	}
   
 constructor() { }
