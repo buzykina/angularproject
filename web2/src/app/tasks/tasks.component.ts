@@ -26,8 +26,8 @@ constructor() { }
 
   }
 
-  addTask(ID,Name) {
-    this.tasks.push ({id: ID, name: Name});
+  addTask(ID,Name,) {
+    this.tasks.push ({id: ID, name: Name, Modify: false, show: false});
   }  
 
   delete(i) {
