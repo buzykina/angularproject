@@ -1,0 +1,11 @@
+
+ <div *ngIf="selectedEmployee && selectedEmployee.show">
+  <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
+<div><span>id: </span>{{selectedEmployee.id}}</div>
+<div>
+  <span>First name: </span>{{selectedEmployee.firstname}}
+</div>
+<div><span>Last name: </span>{{selectedEmployee.lastname}}</div>
+<div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
+<div><span>Gender: </span>{{selectedEmployee.gender}}</div>
+  </div>

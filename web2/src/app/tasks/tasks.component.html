@@ -53,9 +53,9 @@
 
 <br>
 
-<button class="btn" (click)="selectedTask.show = true; selectedTask.Add = false; selectedTask.Modify = false; variable = false;">View details</button>
-<button class="btn" (click)="selectedTask.show = false; selectedTask.Add = false; selectedTask.Modify = true; variable = false;">Modify info</button> 
+<button class="btn" (click)="selectedTask.show = true; selectedTask.Modify = false; variable = false;">View details</button>
+<button class="btn" (click)="selectedTask.show = false; selectedTask.Modify = true; variable = false;">Modify info</button> 
 <button class="btn" (click)=delete(selectedTask)>Delete</button> 
-<button class="btn" (click)="variable = true; selectedTask.show = false; selectedTask.Add = false; selectedTask.Modify = false; selectedTask = null;">Add</button> 
+<button class="btn" (click)="variable = true; selectedTask.show = false; selectedTask.Modify = false; selectedTask = null;">Add</button> 
 
 

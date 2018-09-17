@@ -5,17 +5,7 @@
     <span class="badge">{{employee.id}}</span> {{employee.lastname}}
   </li>
 </ul>
-
- <div class = "display" *ngIf="selectedEmployee && selectedEmployee.show">
-  <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
-<div><span>id: </span>{{selectedEmployee.id}}</div>
-<div>
-  <span>First name: </span>{{selectedEmployee.firstname}}
-</div>
-<div><span>Last name: </span>{{selectedEmployee.lastname}}</div>
-<div><span>DOB: </span>{{selectedEmployee.birthday | date}}</div>
-<div><span>Gender: </span>{{selectedEmployee.gender}}</div>
-  </div>
+<app-employee-detail class = "display">
 
  <div class = "display side1" *ngIf="selectedEmployee && selectedEmployee.modify">
   <h4>Details of {{selectedEmployee.firstname}} {{selectedEmployee.lastname | uppercase}}: </h4>
