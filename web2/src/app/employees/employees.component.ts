@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { Employees } from '../mock-employees';
-import { Variables } from '../employee';
 
 @Component({
   selector: 'app-employees',
@@ -12,9 +11,7 @@ export class EmployeesComponent
 implements OnInit {
 	employees = Employees;
 	selectedEmployee: Employee;
-  variables: Variables = {
-  add: false
-  };
+  add: Boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -22,7 +19,7 @@ implements OnInit {
 addEmployee(id,fname,lname,gender,dob)
 {
   this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false, modify: false } );
-  this.variables.add = false;
+  add = false;
 }
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;

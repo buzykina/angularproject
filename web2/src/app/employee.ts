@@ -7,6 +7,3 @@ export class Employee {
   show:boolean;
   modify:boolean;
 }
-export class Variables {
-  add:boolean;
-}
