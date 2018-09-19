@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee';
-import { Employees } from '../mock-employees';
-
+import { EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -9,17 +7,21 @@ import { Employees } from '../mock-employees';
 })
 export class EmployeesComponent 
 implements OnInit {
-	employees = Employees;
+	employees: Employee[];
 	selectedEmployee: Employee;
   add: Boolean = false;
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
+  this.getEmployee();
   }
+  getEmployee(): void {
+  this.employees = this.employeeService.getEmployees();
+}
 addEmployee(id,fname,lname,gender,dob)
 {
   this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false, modify: false } );
-  add = false;
+  this.add = false;
 }
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;

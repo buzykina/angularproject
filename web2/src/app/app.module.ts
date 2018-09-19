@@ -6,8 +6,9 @@ import { EmployeesComponent } from './employees/employees.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { FormsModule } from '@angular/forms';
 import { DepartmentsComponent } from './departments/departments.component';
-import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';//Angular ngModel imported from here.
-
+import { EmployeeaddComponent } from './employeeadd/employeeadd.component';
+import { EmployeeviewComponent } from './employeeview/employeeview.component';
+import { EmployeemodifyComponent } from './employeemodify/employeemodify.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     EmployeesComponent,
     TasksComponent,
     DepartmentsComponent,
-    EmployeeDetailComponent,
+    EmployeeaddComponent,
+    EmployeeviewComponent,
+    EmployeemodifyComponent,
   ],
   imports: [
     BrowserModule,
