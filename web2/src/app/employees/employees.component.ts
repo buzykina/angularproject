@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-employees',
@@ -16,8 +17,9 @@ implements OnInit {
   this.getEmployee();
   }
   getEmployee(): void {
-  this.employees = this.employeeService.getEmployees();
+  this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
 }
+
 addEmployee(id,fname,lname,gender,dob)
 {
   this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false, modify: false } );

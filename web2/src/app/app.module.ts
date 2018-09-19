@@ -9,6 +9,7 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { EmployeeaddComponent } from './employeeadd/employeeadd.component';
 import { EmployeeviewComponent } from './employeeview/employeeview.component';
 import { EmployeemodifyComponent } from './employeemodify/employeemodify.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EmployeemodifyComponent } from './employeemodify/employeemodify.compone
     EmployeeaddComponent,
     EmployeeviewComponent,
     EmployeemodifyComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
