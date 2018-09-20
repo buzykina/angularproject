@@ -26,15 +26,15 @@ index(): number
 	}
 	return max+1;
 }
-addEmployee(fname,lname,gender,dob): void {
+addEmployee(depId,fname,lname,dob): void {
 	var id = this.index();
-  Employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false, modify: false } );
+  Employees.push( {id: id, depId: depId, lastname:lname, firstname: fname, birthday: dob, show: false, modify: false } );
   this.messageService.add('EmployeeService: employee with id '+id+' was added');
 }
 delete(i): void{
 	for (var k = 0; k < Employees.length; ++k) 
 	{
-		if(k == Employees[k].id)
+		if(i == Employees[k].id)
 		{
 			Employees.splice(k,1);
 		}

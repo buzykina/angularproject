@@ -13,7 +13,7 @@ export class EmployeeaddComponent implements OnInit {
 
   ngOnInit() {
   }
-  addEmployee(fname,lname,gender,dob): void {
-  this.employeeService.addEmployee(fname,lname,gender,dob);
+  addEmployee(depId,fname,lname,dob): void {
+  this.employeeService.addEmployee(depId,fname,lname,dob);
 }
 }

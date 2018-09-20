@@ -1,8 +1,8 @@
 export class Employee {
   id: number;
+  depId: number;
   lastname: string;
   firstname: string;
-  gender: string;
   birthday: string;
   show:boolean;
   modify:boolean;

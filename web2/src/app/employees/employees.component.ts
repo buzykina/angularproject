@@ -32,8 +32,8 @@ implements OnInit {
    this.add = false;
    this.employeeService.view(this.selectedEmployee.id);
  }
-delete(i) { 
- this.employeeService.delete(i);
+delete() { 
+ this.employeeService.delete(this.selectedEmployee.id);
  this.selectedEmployee = null;
 } 
 add1():void{
