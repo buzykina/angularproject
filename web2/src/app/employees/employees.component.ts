@@ -20,22 +20,35 @@ implements OnInit {
   this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
 }
 
-addEmployee(id,fname,lname,gender,dob)
-{
-  this.employees.push( {id: id, lastname:lname, firstname: fname, gender: gender, birthday: dob, show: false, modify: false } );
-  this.add = false;
-}
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
     this.selectedEmployee.modify = false;
     this.selectedEmployee.show = false;
   }
+ view()
+ {
+   this.selectedEmployee.show = true; 
+   this.selectedEmployee.modify = false; 
+   this.add = false;
+   this.employeeService.view(this.selectedEmployee.id);
+ }
 delete(i) { 
- let arr = this.employees; 
- i.show = false;
- i.modify = false;
- arr = arr.filter( (x) => x != i);
- this.employees = arr;
+ this.employeeService.delete(i);
  this.selectedEmployee = null;
 } 
+add1():void{
+this.add =true;
+if(this.selectedEmployee != null)
+{
+  this.selectedEmployee.modify = false;
+    this.selectedEmployee.show = false;
+}
+}
+modify()
+{
+  this.selectedEmployee.modify = true; 
+  this.selectedEmployee.show = false; 
+  this.add = false;
+  this.employeeService.modify(this.selectedEmployee.id);
+}
 }

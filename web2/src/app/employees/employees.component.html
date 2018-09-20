@@ -9,14 +9,14 @@
 <app-employeeadd *ngIf="add" [employee]="selectedEmployee"> </app-employeeadd>
 <app-employeeview *ngIf="selectedEmployee && selectedEmployee.show" [employee]="selectedEmployee"> </app-employeeview>
 <div>
-<button *ngIf="selectedEmployee" class="janebtn" (click)="selectedEmployee.show = true; selectedEmployee.modify = false; add = false;">View details</button>
-<button *ngIf="selectedEmployee" class="janebtn" (click)="selectedEmployee.modify = true; selectedEmployee.show = false; add = false;">
+<button *ngIf="selectedEmployee" class="janebtn" (click)="view()">View details</button>
+<button *ngIf="selectedEmployee" class="janebtn" (click)="modify()">
     Modify info
   </button>
 <button *ngIf="selectedEmployee" class="janebtn" (click)="delete(selectedEmployee);">
     Delete
   </button>
-  <button class="janebtn" (click)="add = true; selectedEmployee.modify = false; selectedEmployee.show = false;">
+  <button class="janebtn" (click)="add1();">
     Add
   </button>
 </div>

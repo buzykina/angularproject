@@ -1,8 +1,6 @@
 <div class = "display side1">
 <h4>Add an employee</h4>
   <form name="emploeeform" ng-submit="addEmployee(empName.value)">
-  	<label>Id:</label>
-     <input type="number" name="empId" placeholder="id" #empId required /><br>
   	<label>First Name:</label>
      <input type="text" placeholder="first name" name="empFName" #empFName required /><br>
      <label>Last Name:</label>
@@ -11,6 +9,6 @@
      <input type="text" placeholder="gender" name="empGender" #empGender required /><br>
      <label>Birthday:</label>
      <input type="text" placeholder="DOB mm/dd/yy" name="empDOB" #empDOB required /><br>
-     <button class="janebtn side" (click)="addEmployee(empId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">Done</button>
+     <button class="janebtn side" (click)="addEmployee(empFName.value,empLName.value,empGender.value,empDOB.value)">Done</button>
   </form>
 </div>
