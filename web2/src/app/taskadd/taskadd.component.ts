@@ -14,8 +14,8 @@ export class TaskaddComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTask(ID,Name) : void {
-  	this.taskService.addTask(ID, Name);
+  addTask(ID,Name,depID, employeeName,deadline) : void {
+  	this.taskService.addTask(ID, Name, depID, employeeName,deadline);
   }
 
   

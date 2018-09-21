@@ -63,8 +63,8 @@ constructor(private taskService: TaskService) { }
     this.selectedTask = null;
   }
 
-  addTask(ID,Name): void {
-    this.taskService.addTask(ID,Name);
+  addTask(ID,Name, depID, employeeName,deadline): void {
+    this.taskService.addTask(ID,Name, depID, employeeName,deadline);
   }
 
 

@@ -16,8 +16,8 @@ export class TaskService {
   }
 
   
-  addTask(ID,Name) : void {
-  	TASKS.push({id : ID, name : Name, show:false, Modify: false})
+  addTask(ID,Name, depID, empName,deadline) : void {
+  	TASKS.push({id : ID, depID : depID, employeeName : empName, name : Name,deadline: deadline, show:false, Modify: false})
   	this.messageService.add('New task with id ' + ID + ' was added');
   }
 
