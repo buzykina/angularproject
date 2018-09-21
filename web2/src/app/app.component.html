@@ -5,9 +5,14 @@
   </h1>
 </div>
 <h2>Deliverables for week 3</h2>
-<app-employees></app-employees>
-<app-tasks></app-tasks>
-<app-departments></app-departments>
-<app-messages></app-messages>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/employees">Employees</a>
+  <a routerLink="/tasks">Tasks</a>
+  <a routerLink="/departments">Departments</a>
+  <a routerLink="/log-files">Log-files</a>
+</nav>
+<router-outlet></router-outlet>
+
 
 

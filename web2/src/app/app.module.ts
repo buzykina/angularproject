@@ -10,6 +10,8 @@ import { EmployeeaddComponent } from './employeeadd/employeeadd.component';
 import { EmployeeviewComponent } from './employeeview/employeeview.component';
 import { EmployeemodifyComponent } from './employeemodify/employeemodify.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,14 @@ import { MessagesComponent } from './messages/messages.component';
     EmployeeviewComponent,
     EmployeemodifyComponent,
     MessagesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
 
-    FormsModule
+    FormsModule,
+
+    AppRoutingModule
 
   ],
   providers: [],
