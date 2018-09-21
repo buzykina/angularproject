@@ -5,9 +5,6 @@ s<h3>List of employees</h3>
     <span class="badge">{{employee.id}}</span> {{employee.lastname}}
   </li>
 </ul>
-<app-employeemodify *ngIf="selectedEmployee && selectedEmployee.modify" [employee]="selectedEmployee"> </app-employeemodify>
-<app-employeeadd *ngIf="add" [employee]="selectedEmployee"> </app-employeeadd>
-<app-employeeview *ngIf="selectedEmployee && selectedEmployee.show" [employee]="selectedEmployee"> </app-employeeview>
 <div>
 <button *ngIf="selectedEmployee" class="janebtn" (click)="view();">View details</button>
 <button *ngIf="selectedEmployee" class="janebtn" (click)="modify();">
