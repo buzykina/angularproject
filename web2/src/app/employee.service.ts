@@ -11,9 +11,11 @@ export class EmployeeService {
 
   constructor(private messageService: MessageService) { }
   getEmployees(): Observable<Employee[]> {
-  this.messageService.add('EmployeeService: get an employee');
-  return of(Employees);
-}
+ 	this.messageService.add('EmployeeService: get an employee');
+ 	return of(Employees);
+  }
+
+
 index(): number
 {
 	var max = -1;

@@ -8,54 +8,17 @@
 
 
 
+<app-taskmodify *ngIf="selectedTask && selectedTask.Modify" [task]= "selectedTask"></app-taskmodify>
+<app-taskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-taskview>
+<app-taskadd *ngIf="addATask" [task] = "selectedTask"></app-taskadd>
 
-<div *ngIf="selectedTask && selectedTask.show" class="display">
 
-	<h2>{{selectedTask.name | uppercase}} Details</h2>
+<button *ngIf="selectedTask" class="btn" (click)="view();"> Show Details</button>
 
-	<div>
-		<span>ID: </span>{{selectedTask.id}}
-	</div>
+<button *ngIf="selectedTask" class="btn" (click)="modify();">Modify details</button>
 
-	<div>
-	  <label>Name:
-	    <span>  {{selectedTask.name}} </span>
-	  </label>
-	</div>
+<button *ngIf="selectedTask" class="btn" (click)="delete();"> Delete task</button>
 
-</div>
-
-<div *ngIf="selectedTask && selectedTask.Modify" class="display">
-
-	<h2>{{selectedTask.name | uppercase}} Details</h2>
-
-	<div>
-		<span>ID: </span>{{selectedTask.id}}
-	</div>
-
-	<div>
-	  <label>Name:
-	    <input [(ngModel)]="selectedTask.name" placeholder="name">
-	  </label>
-	</div>
-
-</div>
-
-<div class="display" *ngIf="variable == true && selectedTask == null">
-	<form name="taskForm" ng-submit="addTask(taskName)">
-			<h2> Add a task</h2>
-			<label>ID: </label> <input type="number" placeholder="ID" name="taskID" #taskID required>
-			<label>Name: </label> <input type="text" placeholder="name" name="taskName" #taskName required>
-			<button class="btn" (click)="addTask(taskID.value,taskName.value); variable = false;">Add</button>
-	</form>
-
-</div>
-
-<br>
-
-<button class="btn" (click)="selectedTask.show = true; selectedTask.Modify = false; variable = false;">View details</button>
-<button class="btn" (click)="selectedTask.show = false; selectedTask.Modify = true; variable = false;">Modify info</button> 
-<button class="btn" (click)=delete(selectedTask)>Delete</button> 
-<button class="btn" (click)="variable = true; selectedTask.show = false; selectedTask.Modify = false; selectedTask = null;">Add</button> 
+<button class="btn" (click)="add1();"> Add a task</button>
 
 

@@ -6,25 +6,30 @@ import { EmployeeService } from '../employee.service';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
-export class EmployeesComponent 
-implements OnInit {
-	employees: Employee[];
-	selectedEmployee: Employee;
+export class EmployeesComponent implements OnInit {
+	
+  employees: Employee[];
+	
+  selectedEmployee: Employee;
+  
   add: Boolean = false;
+  
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
-  this.getEmployee();
+       this.getEmployee();
   }
+  
   getEmployee(): void {
-  this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
-}
+       this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
+  }
 
  onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
     this.selectedEmployee.modify = false;
     this.selectedEmployee.show = false;
   }
+ 
  view()
  {
    this.selectedEmployee.show = true; 
@@ -32,18 +37,21 @@ implements OnInit {
    this.add = false;
    this.employeeService.view(this.selectedEmployee.id);
  }
+
 delete() { 
  this.employeeService.delete(this.selectedEmployee.id);
  this.selectedEmployee = null;
 } 
+
 add1():void{
-this.add =true;
-if(this.selectedEmployee != null)
-{
-  this.selectedEmployee.modify = false;
+  this.add =true;
+  if(this.selectedEmployee != null)
+  {
+    this.selectedEmployee.modify = false;
     this.selectedEmployee.show = false;
+  }
 }
-}
+
 modify()
 {
   this.selectedEmployee.modify = true; 
@@ -51,4 +59,5 @@ modify()
   this.add = false;
   this.employeeService.modify(this.selectedEmployee.id);
 }
+
 }

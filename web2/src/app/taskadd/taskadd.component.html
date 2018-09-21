@@ -1,0 +1,14 @@
+<div class="display">
+	<h2>Add a task</h2>
+	<form name="taskForm" ng-submit="addTask(taskID.value,taskName.value)">
+		<label>ID: </label>
+		<input type="number" placeholder="ID" name="taskID" #taskID required>
+
+		<br>
+
+		<label>Name: </label>
+		<input type="text" placeholder="Task Name" name="taskName" #taskName required>
+		<button class="btn" (click)="addTask(taskID.value, taskName.value)">Add Task!</button>
+
+	</form>
+</div>
