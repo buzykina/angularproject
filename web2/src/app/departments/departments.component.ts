@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Department } from '../Department';
-import { Departments } from '../departmentsList';
 import { Variables } from '../Department';
+import { DepartmentsService } from '../departments.service';
 
 @Component({
   selector: 'app-departments',
@@ -10,7 +10,8 @@ import { Variables } from '../Department';
 })
 export class DepartmentsComponent implements OnInit {
 
-  departments = Departments;
+  departments: Department[];
+  
 
   selectedDepartment: Department;
 
@@ -18,28 +19,26 @@ export class DepartmentsComponent implements OnInit {
   add: false
   };
 
-  constructor() { }
+  constructor(private departmentsService: DepartmentsService) { }
 
   ngOnInit() {
+  this.getDepartments();
+  this.departmentsService.addEmployeesToDepartments();
   }
 
-add(id: number,name: string,building: string,nrofemployees: number): void {
-	this.departments.push({ id: id, name: name, building: building, nrofemployees:nrofemployees,show: false, modify: false});
-	this.variables.add = false;
-}
-
-delete(i) { 
- let arr = this.departments; 
- i.show = false;
- i.modify = false;
- arr = arr.filter( (x) => x != i);
- this.departments = arr;
+delete(i) {  
+ this.departmentsService.delete(this.selectedDepartment.id);
  this.selectedDepartment = null;
 } 
 
 onSelect(department: Department): void {
     this.selectedDepartment = department;
 } 
+
+getDepartments(): void{
+  this.departmentsService.getDepartments()
+    .subscribe(Departments => this.departments = Departments);
+}
 
 }
 

@@ -6,55 +6,14 @@
   </li>
 </ul>
 
+<app-departmentsview [department]="selectedDepartment"></app-departmentsview>
 
-<div class = "display" *ngIf="selectedDepartment && selectedDepartment.show">
+<app-departmentsadd  [department]="variables.add"></app-departmentsadd>
 
-  <h4>DETAILS OF  {{selectedDepartment.name | uppercase}}: </h4>
-  <div><span>ID: </span>{{selectedDepartment.id}}</div>
-
-  <div>
-    <span>NAME: </span>{{selectedDepartment.name}}
-  </div>
-
-  <div><span>NUMBER OF EMPLOYEES: </span>{{selectedDepartment.nrofemployees}}</div>
-  <div><span>BUILDING: </span>{{selectedDepartment.building}}</div>
-
-</div>
-
-<div class = "display" *ngIf="variables.add">
-  <h3>Add a department</h3>
-  <label>Id:
-    <input #id />
-  </label>
-  <br>
-  <label>Name:
-    <input #name />
-  </label>
-  <br>
-  <label>Number of empoyees:
-    <input #numberofemployees />
-  </label>
-  <br>
-  <label>Building:
-    <input #building />
-  </label>
-  <br>
-  <button class="janebtn" (click)="add(id.value,name.value,numberofemployees.value,building.value); id.value=''; name.value=''; numberofemployees.value=''; name.building='' ">
-    Add
-  </button>
-</div>
+<app-departmentsmodify  [department]="selectedDepartment"></app-departmentsmodify> 
 
 
 
-
-<div class = "display" *ngIf="selectedDepartment && selectedDepartment.modify">
-  <h4>DETAILS OF {{selectedDepartment.name | uppercase}}: </h4>
-  <div><span>ID: </span>{{selectedDepartment.id}}</div>
-  <div><span>NAME: </span><input [(ngModel)]="selectedDepartment.name" placeholder="Name"></div>
-  <div><span>NUMBER OF EMPLOYEES: </span><input [(ngModel)]="selectedDepartment.nrofemployees" placeholder="Number Of Employees"></div>
-  <div><span>BUILDING: </span><input [(ngModel)]="selectedDepartment.building" placeholder="Building"></div>
-  <button class="janebtn" (click)="selectedDepartment.modify = false;">Done</button>
-</div>
 
 <br>
 

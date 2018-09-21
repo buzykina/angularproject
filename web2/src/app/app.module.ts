@@ -12,6 +12,11 @@ import { EmployeemodifyComponent } from './employeemodify/employeemodify.compone
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DepartmentsaddComponent } from './departmentsadd/departmentsadd.component';
+import { DepartmentsviewComponent } from './departmentsview/departmentsview.component';
+import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodify.component';
+
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,13 +29,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EmployeemodifyComponent,
     MessagesComponent,
     DashboardComponent,
+    DepartmentsaddComponent,
+    DepartmentsviewComponent,
+    DepartmentsmodifyComponent,
   ],
   imports: [
     BrowserModule,
 
     FormsModule,
 
-    AppRoutingModule
+    AppRoutingModule,
+
+    HttpClientModule
 
   ],
   providers: [],
