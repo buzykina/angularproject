@@ -9,7 +9,7 @@
 
 <h3> The list of tasks </h3>
 <div class="grid grid-pad">
-	<a *ngFor = "let task of tasks" class="col-1-6" routerLink="/task/{{task.id}}">
+	<a *ngFor = "let task of tasks" class="col-1-6" routerLink="/taskview/{{task.id}}">
 		<div class="module task">
 			<h3>{{task.name}}</h3>
 		</div>

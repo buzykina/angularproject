@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from '../task';
 import { TaskService } from '../task.service';
-import { ActivatedRoute } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -19,14 +19,7 @@ export class TasksComponent implements OnInit {
 constructor(private taskService: TaskService) { }
   
   ngOnInit() {
-    this.getTasks();
   }
-
-  getTasks() : void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
-  }
-
    onSelect(task: Task) : void {
     this.selectedTask = task;
     this.selectedTask.show = false;
