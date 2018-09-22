@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeesComponent }  from './employees/employees.component';
 import { TasksComponent }  from './tasks/tasks.component';
+import { TaskviewComponent } from './taskview/taskview.component';
 import { DepartmentsComponent }  from './departments/departments.component';
 import { MessagesComponent }  from './messages/messages.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'log-files', component: MessagesComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'departments', component: DepartmentsComponent }
+  { path: 'departments', component: DepartmentsComponent },
+  { path: 'task/:id', component: TaskviewComponent}
 
 ];
 @NgModule({

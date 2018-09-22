@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from '../task';
-import { TaskService } from '../task.service'
+import { TaskService } from '../task.service';
+import { ActivatedRoute } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
@@ -21,9 +22,9 @@ constructor(private taskService: TaskService) { }
     this.getTasks();
   }
 
-  getTasks(): void {
-   this.taskService.getTasks()
-        .subscribe(tasks => this.tasks = tasks);
+  getTasks() : void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
   }
 
    onSelect(task: Task) : void {
@@ -91,8 +92,5 @@ constructor(private taskService: TaskService) { }
 }
 
 
-  
 
-
-  
  

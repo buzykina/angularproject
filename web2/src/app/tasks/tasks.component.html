@@ -1,7 +1,8 @@
 <h2> List of tasks </h2>
 
 <ul class="tasks">
-	<li *ngFor="let task of tasks"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
+	<li *ngFor="let task of tasks"  >
+		<a routerLink="/task/{{task.id}}"
 		<span class="badge">{{task.id}}</span> {{task.name}}
 	</li>
 </ul>
@@ -9,7 +10,7 @@
 
 
 <app-taskmodify *ngIf="selectedTask && selectedTask.Modify" [task]= "selectedTask"></app-taskmodify>
-<app-taskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-taskview>
+
 <app-taskadd *ngIf="addATask" [task] = "selectedTask"></app-taskadd>
 
 
@@ -22,3 +23,4 @@
 <button class="btn" (click)="add1();"> Add a task</button>
 
 
+<!-- <app-taskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-taskview> / [class.selected]="task === selectedTask" (click)="onSelect(task)" -->
