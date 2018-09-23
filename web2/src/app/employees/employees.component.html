@@ -1,4 +1,4 @@
-<h3>List of employees</h3>
+<h4>List of employees</h4>
 <ul class="employees">
 <li *ngFor = "let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
     <span class="badge">{{employee.id}}</span> {{employee.last_name}}
