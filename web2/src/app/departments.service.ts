@@ -35,9 +35,9 @@ export class DepartmentsService {
 		{
 			for (var x = 0; x < Employees.length; ++x)
 			{
-				if(Employees[x].depId == Departments[k].id)
+				if(Employees[x].department_id == Departments[k].id)
 				{
-					Departments[k].employeesArr.push({id:Employees[x].id, depId:Employees[x].depId,lastname:Employees[x].lastname,firstname:Employees[x].firstname,birthday:Employees[x].birthday,show:false,modify:false });
+					Departments[k].employeesArr.push({id:Employees[x].id, department_id:Employees[x].department_id,last_name:Employees[x].last_name,first_name:Employees[x].first_name,birth_date:Employees[x].birth_date,show:false,modify:false });
 				}
 			}
 			

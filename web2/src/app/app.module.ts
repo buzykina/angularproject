@@ -17,6 +17,7 @@ import { DepartmentsviewComponent } from './departmentsview/departmentsview.comp
 import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodify.component';
 
 import{HttpClientModule} from '@angular/common/http';
+import { Employeesview1Component } from './employeesview1/employeesview1.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import{HttpClientModule} from '@angular/common/http';
     DepartmentsaddComponent,
     DepartmentsviewComponent,
     DepartmentsmodifyComponent,
+    Employeesview1Component,
   ],
   imports: [
     BrowserModule,

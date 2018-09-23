@@ -1,15 +1,34 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Employee } from '../employee';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Employee }         from '../employee';
+import { EmployeeService }  from '../employee.service';
 @Component({
   selector: 'app-employeeview',
   templateUrl: './employeeview.component.html',
   styleUrls: ['../employees/employees.component.css']
 })
 export class EmployeeviewComponent implements OnInit {
-@Input() employee: Employee;
-  constructor() { }
+  employee: Employee;
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private employeeService: EmployeeService,
+    private location: Location
+  ) {}
+
+  ngOnInit(): void {
+    this.getHero();
   }
 
+  getHero(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.employeeService.getEmployee(id)
+      .subscribe(employee => this.employee = employee);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
+

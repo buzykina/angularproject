@@ -1,12 +1,12 @@
  <div class = "display side1">
-  <h4>Details of {{employee.firstname}} {{employee.lastname | uppercase}}: </h4>
+  <h4>Details of {{employee.first_name}} {{employee.last_name | uppercase}}: </h4>
 <div><span>id: </span>{{employee.id}}</div>
-<div><span>Department id: </span><input [(ngModel)]="employee.depId" placeholder="department id"></div>
+<div><span>Department id: </span><input [(ngModel)]="employee.department_id" placeholder="department id"></div>
 <div>
   <span>First name: </span>
-  <input [(ngModel)]="employee.firstname" placeholder="first name">
+  <input [(ngModel)]="employee.first_name" placeholder="first name">
 </div>
-<div><span>Last name: </span><input [(ngModel)]="employee.lastname" placeholder="last name"></div>
-<div><span>DOB: </span><input [(ngModel)]="employee.birthday" placeholder="DOB mm/dd/yy"></div>
+<div><span>Last name: </span><input [(ngModel)]="employee.last_name" placeholder="last name"></div>
+<div><span>DOB: </span><input [(ngModel)]="employee.birth_date" placeholder="DOB mm/dd/yy"></div>
 <button class="janebtn side" (click)="employee.modify = false;">Done</button>
   </div>

@@ -14,6 +14,11 @@ export class EmployeeService {
   this.messageService.add('EmployeeService: get an employee');
   return of(Employees);
 }
+ getEmployee(id: number): Observable<Employee> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`EmployeeService: fetched employee id=${id}`);
+    return of(Employees.find(Employee => Employee.id === id));
+  }
 index(): number
 {
 	var max = -1;
@@ -28,7 +33,7 @@ index(): number
 }
 addEmployee(depId,fname,lname,dob): void {
 	var id = this.index();
-  Employees.push( {id: id, depId: depId, lastname:lname, firstname: fname, birthday: dob, show: false, modify: false } );
+  Employees.push( {id: id, department_id: depId, last_name:lname, first_name: fname, birth_date: dob, show: false, modify: false } );
   this.messageService.add('EmployeeService: employee with id '+id+' was added');
 }
 delete(i): void{

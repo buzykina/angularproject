@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'detail/:id', component: DepartmentsmodifyComponent },
-  { path: 'detail/:id', component: EmployeeviewComponent }
+  { path: 'detailemployee/:id', component: EmployeeviewComponent }
 
 ];
 @NgModule({

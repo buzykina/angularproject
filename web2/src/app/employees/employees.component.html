@@ -1,11 +1,10 @@
 <h3>List of employees</h3>
-<ul class="employee">
-  <li *ngFor="let employee of employees">
-    <a routerLink="/detail/{{employee.id}}">
-      <span class="badge">{{hero.id}}</span> {{employee.lastname}}
-    </a>
+<ul class="employees">
+<li *ngFor = "let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+    <span class="badge">{{employee.id}}</span> {{employee.last_name}}
   </li>
 </ul>
+<app-employeesview1 *ngIf="selectedEmployee && selectedEmployee.show" [employee]="selectedEmployee"></app-employeesview1>
 <app-employeemodify *ngIf="selectedEmployee && selectedEmployee.modify" [employee]="selectedEmployee"> </app-employeemodify>
 <app-employeeadd *ngIf="add" [employee]="selectedEmployee"> </app-employeeadd>
 <div>
