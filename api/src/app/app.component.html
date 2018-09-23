@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h3>
+    Welcome to {{ title }}!
+  </h3>
+</div>
+    <div class="row">
+		<div class="col-md-6">
+            <div class="panel with-nav-tabs panel-success">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs janeul">
+                            <li><a routerLink="/dashboard" data-toggle="tab">Dashboard</a></li>
+                            <li><a routerLink="/employees" data-toggle="tab">Employees</a></li>
+                            <li><a routerLink="/tasks" data-toggle="tab">Tasks</a></li>
+                            <li><a routerLink="/departments" data-toggle="tab">Departments</a></li>
+                            <li><a routerLink="/log-files" data-toggle="tab">Log-files</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<router-outlet></router-outlet>
+
+
+

@@ -1,0 +1,12 @@
+
+ <div class = "display">
+  <h4>Details of {{employee.first_name}} {{employee.last_name | uppercase}}: </h4>
+<div><span>id: </span>{{employee.id}}</div>
+<div><span>Department id: </span>{{employee.department_id}}</div>
+<div>
+  <span>First name: </span>{{employee.first_name}}
+</div>
+<div><span>Last name: </span>{{employee.last_name}}</div>
+<div><span>DOB: </span>{{employee.birth_date | date}}</div>
+  </div>
+<button class = "janebtn" (click)="goBack()">go back</button>

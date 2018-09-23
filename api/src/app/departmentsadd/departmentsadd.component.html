@@ -1,0 +1,22 @@
+<div class = "display" *ngIf="department">
+  <h3>Add a department</h3>
+  <label>Id:
+    <input #id />
+  </label>
+  <br>
+  <label>Name:
+    <input #name />
+  </label>
+  <br>
+  <label>Number of empoyees:
+    <input #numberofemployees />
+  </label>
+  <br>
+  <label>Building:
+    <input #building />
+  </label>
+  <br>
+  <button class="janebtn" (click)="add(id.value,name.value,numberofemployees.value,building.value); id.value=''; name.value=''; numberofemployees.value=''; name.building='' ">
+    Add
+  </button>
+</div>

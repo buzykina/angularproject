@@ -1,0 +1,33 @@
+<h2>List of Departments</h2>
+
+<ul class = "employees">
+  <li *ngFor = "let department of departments" [class.selected]="department === selectedDepartment" (click)="onSelect(department); selectedDepartment.modify = false; selectedDepartment.show = false; variables.add = false;">
+  	<span class="badge">{{department.id}}</span> {{department.name}}
+  </li>
+</ul>
+
+<app-departmentsview [department]="selectedDepartment"></app-departmentsview>
+
+<app-departmentsadd  [department]="variables.add"></app-departmentsadd>
+
+<app-departmentsmodify  [department]="selectedDepartment"></app-departmentsmodify> 
+
+
+
+
+<br>
+
+
+ <button class="janebtn" (click)="selectedDepartment.show = true; selectedDepartment.modify = false; variables.add = false;">View details</button>
+ 
+<button class="janebtn" (click)="selectedDepartment.modify = true; selectedDepartment.show = false; variables.add = false;">
+    Modify info
+</button>
+
+<button class="janebtn" (click)="delete(selectedDepartment);">
+    Delete
+  </button>
+
+  <button class="janebtn" (click)="variables.add = true; selectedDepartment.modify = false; selectedDepartment.show = false;">
+    Add
+  </button>
