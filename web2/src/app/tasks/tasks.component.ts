@@ -27,11 +27,6 @@ constructor(private taskService: TaskService) { }
     this.addATask = false;
     
    }
-
-
- 
-
-
         
   view() : void {
     this.selectedTask.show = true;
