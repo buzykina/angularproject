@@ -28,6 +28,11 @@ constructor(private taskService: TaskService) { }
     
    }
 
+
+ 
+
+
+        
   view() : void {
     this.selectedTask.show = true;
     this.selectedTask.Modify = false;
