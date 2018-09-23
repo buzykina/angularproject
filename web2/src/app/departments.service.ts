@@ -15,6 +15,10 @@ export class DepartmentsService {
   	return of(Departments);
   }
 
+  getSpecificDepartment(id: number): Observable<Department> {
+    return of(Departments.find(Department => Department.id === id));
+  }
+
   addDepartment(id: number,name: string,building: string,nrofemployees: number): void {
   	Departments.push({id: id, name: name, building:building, nrofemployees: nrofemployees, show: false, modify: false, employeesArr:[] });
   }

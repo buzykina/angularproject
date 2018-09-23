@@ -5,7 +5,7 @@ import { TasksComponent }  from './tasks/tasks.component';
 import { DepartmentsComponent }  from './departments/departments.component';
 import { MessagesComponent }  from './messages/messages.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { DepartmentsmodifyComponent }  from './departmentsmodify/departmentsmodify.component';
+import { DepartmentsdashboardComponent }  from './departmentsdashboard/departmentsdashboard.component';
 import { EmployeeviewComponent } from './employeeview/employeeview.component';
 const routes: Routes = [
   { path: 'employees', component: EmployeesComponent },
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'departments', component: DepartmentsComponent },
-  { path: 'detail/:id', component: DepartmentsmodifyComponent },
+  { path: 'detail/:id', component: DepartmentsdashboardComponent },
   { path: 'detailemployee/:id', component: EmployeeviewComponent }
 
 ];
