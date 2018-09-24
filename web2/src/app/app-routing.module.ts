@@ -6,6 +6,8 @@ import { TaskviewComponent } from './taskview/taskview.component';
 import { DepartmentsComponent }  from './departments/departments.component';
 import { MessagesComponent }  from './messages/messages.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
+import { DepartmentsdashboardComponent }  from './departmentsdashboard/departmentsdashboard.component';
+import { EmployeeviewComponent } from './employeeview/employeeview.component';
 const routes: Routes = [
   { path: 'employees', component: EmployeesComponent },
   { path: 'tasks', component: TasksComponent },
@@ -14,6 +16,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'taskview/:id', component: TaskviewComponent}
+
+  { path: 'detail/:id', component: DepartmentsdashboardComponent },
+  { path: 'detailemployee/:id', component: EmployeeviewComponent }
+
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

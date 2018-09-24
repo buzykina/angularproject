@@ -1,0 +1,21 @@
+<h4>List of employees</h4>
+<ul class="employees">
+<li *ngFor = "let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+    <span class="badge">{{employee.id}}</span> {{employee.last_name}}
+  </li>
+</ul>
+<app-employeesview1 *ngIf="selectedEmployee && selectedEmployee.show" [employee]="selectedEmployee"></app-employeesview1>
+<app-employeemodify *ngIf="selectedEmployee && selectedEmployee.modify" [employee]="selectedEmployee"> </app-employeemodify>
+<app-employeeadd *ngIf="add" [employee]="selectedEmployee"> </app-employeeadd>
+<div>
+<button *ngIf="selectedEmployee" class="janebtn" (click)="view();">View details</button>
+<button *ngIf="selectedEmployee" class="janebtn" (click)="modify();">
+    Modify info
+  </button>
+<button *ngIf="selectedEmployee" class="janebtn" (click)="delete();">
+    Delete
+  </button>
+  <button class="janebtn" (click)="add1();">
+    Add
+  </button>
+</div>
