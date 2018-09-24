@@ -1,5 +1,5 @@
-
-	<h4>DETAILS OF  {{department.name | uppercase}}: </h4>
+<div id="display">
+    <h4>DETAILS OF  {{department.name | uppercase}}: </h4>
   <div><span>ID: </span>{{department.id}}</div>
 
   <div>
@@ -11,8 +11,7 @@
 
   <div><span>EMPLOYEES: </span><li *ngFor = "let employee of department.employeesArr"> {{employee.first_name}} </li></div>
 
+  <br>
+
   <button id="btn" (click)="goBack()">go back</button>
-
-
-
-	  
+</div>
