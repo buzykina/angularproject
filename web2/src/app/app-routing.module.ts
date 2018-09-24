@@ -7,6 +7,8 @@ import { MessagesComponent }  from './messages/messages.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { DepartmentsdashboardComponent }  from './departmentsdashboard/departmentsdashboard.component';
 import { EmployeeviewComponent } from './employeeview/employeeview.component';
+import { TaskviewComponent } from './taskview/taskview.component';
+
 const routes: Routes = [
   { path: 'employees', component: EmployeesComponent },
   { path: 'tasks', component: TasksComponent },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'detail/:id', component: DepartmentsdashboardComponent },
-  { path: 'detailemployee/:id', component: EmployeeviewComponent }
+  { path: 'detailemployee/:id', component: EmployeeviewComponent },
+  { path: 'taskview/:id', component: TaskviewComponent }
 
 ];
 @NgModule({

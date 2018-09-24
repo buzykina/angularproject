@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Task} from '../task';
-import {TASKS} from '../mock-tasks';
+import { Task } from '../task';
+import { TASKS } from '../mock-tasks';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -14,30 +15,55 @@ export class TasksComponent implements OnInit {
 
   	selectedTask : Task;
 
+    add: boolean = false;
+
   	onSelect(task : Task) {
   		this.selectedTask = task;
       this.selectedTask.show = false;
       this.selectedTask.Modify = false;
   	}
   
-constructor() { }
+constructor(private taskService: TaskService) { }
   
   ngOnInit() {
-
   }
 
-  addTask(ID,Name,) {
-    this.tasks.push ({id: ID, name: Name, Modify: false, show: false});
+
+  view() : void {
+    this.selectedTask.show = true;
+    this.selectedTask.Modify = false;
+    this.add = false;
+    this.taskService.view(this.selectedTask.id);
+  }
+
+  modify() : void {
+    this.selectedTask.show = false;
+    this.selectedTask.Modify = true;
+    this.add = false;
+    this.taskService.modify(this.selectedTask.id);
+  }
+
+  add1() : void {
+    this.add = true;
+    if (this.selectedTask != null)
+    {
+      this.selectedTask.show = false;
+      this.selectedTask.Modify = false;
+    }
+  }
+
+  delete() : void {
+    this.taskService.delete(this.selectedTask.id);
+    this.selectedTask = null;
+  }
+
+
+
+  addTask(ID,Name, depID, employeeName, deadline) {
+    this.tasks.push ({id: ID, name: Name, depID: depID, employeeName: employeeName, deadline: deadline, Modify: false, show: false});
   }  
 
-  delete(i) {
-   let arr = this.tasks; 
-   i.show = false;
-   i.modify = false;
-   arr = arr.filter( (x) => x != i);
-   this.tasks = arr;
-   this.selectedTask = null;
-  }
+  
 
 }
 
