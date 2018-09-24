@@ -18,7 +18,7 @@ export class TaskService {
 
   getTask(id: number): Observable<Task> {
   	this.messageService.add(`TaskService: fetched task id=${id}`);
-    return of(TASKS.find(Task => Task.id === id));
+    return of(TASKS.find(task => task.id === id));
   }
 
   addTask(ID,Name,depID,empName,deadline) : void {

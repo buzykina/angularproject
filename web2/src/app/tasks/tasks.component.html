@@ -9,7 +9,7 @@
 
 
 <app-taskmodify *ngIf="selectedTask && selectedTask.Modify" [task]= "selectedTask"></app-taskmodify>
-<app-taskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-taskview>
+<app-altertaskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-altertaskview>
 <app-taskadd *ngIf="add" [task] = "selectedTask"></app-taskadd>
 
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-altertaskview',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./altertaskview.component.css']
 })
 export class AltertaskviewComponent implements OnInit {
-
+@Input() task: Task;
   constructor() { }
 
   ngOnInit() {
   }
-
 }
