@@ -20,6 +20,8 @@ export class DepartmentsdashboardComponent implements OnInit {
 
   ngOnInit() {
   	this.getDepartment();
+    this.departmentsService.resetEmployees();
+    this.departmentsService.addEmployeesToDepartments();
   }
 
   getDepartment(): void{

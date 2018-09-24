@@ -17,17 +17,18 @@
 
 <br>
 
+<button class="janebtn" (click)="variables.add = true; selectedDepartment.modify = false; selectedDepartment.show = false;">
+ Add
+</button>
 
- <button class="janebtn" (click)="selectedDepartment.show = true; selectedDepartment.modify = false; variables.add = false;">View details</button>
+
+ <button *ngIf="selectedDepartment" class="janebtn" (click)="selectedDepartment.show = true; selectedDepartment.modify = false; variables.add = false;">View details</button>
  
-<button class="janebtn" (click)="selectedDepartment.modify = true; selectedDepartment.show = false; variables.add = false;">
+<button *ngIf="selectedDepartment" class="janebtn" (click)="selectedDepartment.modify = true; selectedDepartment.show = false; variables.add = false;">
     Modify info
 </button>
 
-<button class="janebtn" (click)="delete(selectedDepartment);">
+<button *ngIf="selectedDepartment" class="janebtn" (click)="delete(selectedDepartment);">
     Delete
   </button>
 
-  <button class="janebtn" (click)="variables.add = true; selectedDepartment.modify = false; selectedDepartment.show = false;">
-    Add
-  </button>

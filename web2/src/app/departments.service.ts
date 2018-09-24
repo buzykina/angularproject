@@ -41,12 +41,19 @@ export class DepartmentsService {
 			{
 				if(Employees[x].department_id == Departments[k].id)
 				{
-					Departments[k].employeesArr.push({id:Employees[x].id, department_id:Employees[x].department_id,last_name:Employees[x].last_name,first_name:Employees[x].first_name,birth_date:Employees[x].birth_date,show:false,modify:false });
+						Departments[k].employeesArr.push({id:Employees[x].id, department_id:Employees[x].department_id,last_name:Employees[x].last_name,first_name:Employees[x].first_name,birth_date:Employees[x].birth_date,show:false,modify:false });	
 				}
 			}
 			
 		}
 
+	}
+
+	resetEmployees():void{
+		for (var k = 0; k < Departments.length; ++k) 
+		{
+			Departments[k].employeesArr.length = 0; 
+		}
 	}
 
 }

@@ -23,6 +23,7 @@ export class DepartmentsComponent implements OnInit {
 
   ngOnInit() {
   this.getDepartments();
+  this.departmentsService.resetEmployees();
   this.departmentsService.addEmployeesToDepartments();
   }
 
