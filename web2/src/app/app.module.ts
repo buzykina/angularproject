@@ -19,6 +19,10 @@ import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodif
 import{HttpClientModule} from '@angular/common/http';
 import { Employeesview1Component } from './employeesview1/employeesview1.component';
 import { DepartmentsdashboardComponent } from './departmentsdashboard/departmentsdashboard.component';
+import { TaskaddComponent } from './taskadd/taskadd.component';
+import { TaskmodifyComponent } from './taskmodify/taskmodify.component';
+import { TaskviewComponent } from './taskview/taskview.component';
+import { AltertaskviewComponent } from './altertaskview/altertaskview.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { DepartmentsdashboardComponent } from './departmentsdashboard/department
     DepartmentsmodifyComponent,
     Employeesview1Component,
     DepartmentsdashboardComponent,
+    TaskaddComponent,
+    TaskmodifyComponent,
+    TaskviewComponent,
+    AltertaskviewComponent,
   ],
   imports: [
     BrowserModule,
