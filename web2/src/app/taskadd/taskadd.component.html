@@ -9,18 +9,24 @@
 		<label>Name: </label>
 		<input type="text" placeholder="Task Name" name="taskName" #taskName required>
 
+		<br>
+
 		<label>Department ID: </label>
 		<input type="number" placeholder="Department ID" name="depID" #depID required> 
+
+		<br>
 
 		<label>Employee Name: </label>
 		<input type="text" placeholder="Employee Name" name="employeeName" #employeeName required>
 
-		<label> Deadline: (text) </label>
-		<input type="text" placeholder="Deadline" name="deadline" #deadline required>
+		<br>
+
+		<label> Deadline:  </label>
+		<input type="date" placeholder="Deadline" name="deadline" #deadline required>
 		
 		<br>
 
-		<button class="btn" (click)="addTask(taskID.value, taskName.value, depID.value, employeeName.value, deadline.value)"> Add IT!</button>
+		<button class="btn" > Done </button>
 		
 	</form>
 </div>

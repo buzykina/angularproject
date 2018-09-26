@@ -3,7 +3,7 @@ export class Task {
 	depID: number;
 	employeeName: string;
 	name: string;
-	deadline: string;
+	deadline: Date;
 	show: boolean;
 	Modify: boolean;
 }

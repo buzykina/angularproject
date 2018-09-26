@@ -1,26 +1,30 @@
-<h2>{{task.name | uppercase}} Details </h2>
 
-<div>
-	<label>
-		<input [(ngModel)]="task.id" placeholder="name">
-	</label>
+<div class="display">
+	
+	<h2>{{task.name | uppercase}} Details </h2>
+
+	<div>
+		<label>
+			<input [(ngModel)]="task.id" placeholder="name">
+		</label>
+	</div>
+
+	<div>
+		<label>
+			<input [(ngModel)]="task.depID" placeholder="name">
+		</label>
+	</div>
+
+	<div>
+		<label>
+			<input [(ngModel)]="task.name" placeholder="name">
+		</label>
+	</div>
+
+	<div>
+		<label>
+			<input [(ngModel)]="task.deadline" placeholder="name">
+		</label>
+	</div>
+
 </div>
-
-<div>
-	<label>
-		<input [(ngModel)]="task.depID" placeholder="name">
-	</label>
-</div>
-
-<div>
-	<label>
-		<input [(ngModel)]="task.name" placeholder="name">
-	</label>
-</div>
-
-<div>
-	<label>
-		<input [(ngModel)]="task.deadline" placeholder="name">
-	</label>
-</div>
-

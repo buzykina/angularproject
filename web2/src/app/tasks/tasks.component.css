@@ -53,6 +53,7 @@
   border-radius: 4px 0 0 4px;
 }
 .btn{
+      display: inline;
       cursor: pointer;
       margin: 0px 20px 0px 10px;
       border-radius: 5px;
@@ -78,3 +79,5 @@
 #addbtn{
 
 }
+
+

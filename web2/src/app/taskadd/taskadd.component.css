@@ -1,0 +1,32 @@
+.btn{
+      cursor: pointer;
+      margin: 10px 0px 20px 150px;
+      border-radius: 5px;
+      padding: 0 10px;
+      background-color: transparent;
+      border: 1px solid black;
+      color: black;
+      font-size: 110%;
+      transition: background-color 0.5s ;
+
+}
+
+.btn:hover {
+  background-color: #607D8B;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+
+.display {
+  display: inline-block;
+  margin-left: 30px;
+  font-size: 60%;
+  position: relative;
+  bottom: 100px;
+}
+
+h2 {
+  font-size: 27px;
+  margin: 0 auto;
+}
