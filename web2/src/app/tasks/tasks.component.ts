@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
 import { TASKS } from '../mock-tasks';
 import { TaskService } from '../task.service';
+import { FilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-tasks',

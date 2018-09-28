@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -23,6 +24,7 @@ import { TaskaddComponent } from './taskadd/taskadd.component';
 import { TaskmodifyComponent } from './taskmodify/taskmodify.component';
 import { TaskviewComponent } from './taskview/taskview.component';
 import { AltertaskviewComponent } from './altertaskview/altertaskview.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { AltertaskviewComponent } from './altertaskview/altertaskview.component'
     TaskmodifyComponent,
     TaskviewComponent,
     AltertaskviewComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,9 @@ import { AltertaskviewComponent } from './altertaskview/altertaskview.component'
 
     AppRoutingModule,
 
-    HttpClientModule
+    HttpClientModule,
+
+    NgbModule
 
   ],
   providers: [],

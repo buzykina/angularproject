@@ -1,7 +1,14 @@
 <h4> List of tasks </h4>
 
+
+<form  id="filter">
+	<label>Filter tasks by name: </label>
+	<input type="text" [(ngModel)] = "term" name="term">
+</form>
+
+
 <ul class="tasks">
-	<li *ngFor="let task of tasks"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
+	<li *ngFor="let task of tasks | filter: term"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
 		<span class="badge">{{task.id}}</span> {{task.name}}
 	</li>
 </ul>
@@ -23,3 +30,4 @@
 <button class="btn" (click)="add1();"> Add</button>
 
 </div>
+
