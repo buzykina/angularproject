@@ -1,33 +1,36 @@
-<h4> List of tasks </h4>
+<div class="container">
+
+	<h4> List of tasks </h4>
 
 
-<form  id="filter">
-	<label>Filter tasks by name: </label>
-	<input type="text" [(ngModel)] = "term" name="term">
-</form>
+	<form  id="filter">
+		<label>Filter tasks by name: </label>
+		<input type="text" [(ngModel)] = "term" name="term">
+	</form>
 
 
-<ul class="tasks">
-	<li *ngFor="let task of tasks | filter: term"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
-		<span class="badge">{{task.id}}</span> {{task.name}}
-	</li>
-</ul>
+	<ul class="tasks">
+		<li *ngFor="let task of tasks | filter: term"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
+			<span class="badge">{{task.id}}</span> {{task.name}}
+		</li>
+	</ul>
 
 
 
-<app-taskmodify *ngIf="selectedTask && selectedTask.Modify" [task]= "selectedTask"></app-taskmodify>
-<app-altertaskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-altertaskview>
-<app-taskadd *ngIf="add" [task] = "selectedTask"></app-taskadd>
+	<app-taskmodify *ngIf="selectedTask && selectedTask.Modify" [task]= "selectedTask"></app-taskmodify>
+	<app-altertaskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-altertaskview>
+	<app-taskadd *ngIf="add" [task] = "selectedTask"></app-taskadd>
 
-<div>
-	
-<button *ngIf="selectedTask" class="btn" (click)="view();"> View Details</button>
+	<div>
+		
+	<button *ngIf="selectedTask" class="btn" (click)="view();"> View Details</button>
 
-<button *ngIf="selectedTask" class="btn" (click)="modify();">Modify info</button>
+	<button *ngIf="selectedTask" class="btn" (click)="modify();">Modify info</button>
 
-<button *ngIf="selectedTask" class="btn" (click)="delete();">Delete</button>
+	<button *ngIf="selectedTask" class="btn" (click)="delete();">Delete</button>
 
-<button class="btn" (click)="add1();"> Add</button>
+	<button class="btn" (click)="add1();"> Add</button>
+
+	</div>
 
 </div>
-
