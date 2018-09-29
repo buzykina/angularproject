@@ -25,7 +25,7 @@ import { TaskmodifyComponent } from './taskmodify/taskmodify.component';
 import { TaskviewComponent } from './taskview/taskview.component';
 import { AltertaskviewComponent } from './altertaskview/altertaskview.component';
 import { FilterPipe } from './filter.pipe';
-import { CalendarComponent } from './calendar/calendar.component';
+
 
 @NgModule({
   declarations: [
@@ -47,8 +47,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     TaskmodifyComponent,
     TaskviewComponent,
     AltertaskviewComponent,
-    FilterPipe,
-    CalendarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
