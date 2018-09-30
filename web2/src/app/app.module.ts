@@ -23,6 +23,7 @@ import { TaskaddComponent } from './taskadd/taskadd.component';
 import { TaskmodifyComponent } from './taskmodify/taskmodify.component';
 import { TaskviewComponent } from './taskview/taskview.component';
 import { AltertaskviewComponent } from './altertaskview/altertaskview.component';
+import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AltertaskviewComponent } from './altertaskview/altertaskview.component'
     TaskmodifyComponent,
     TaskviewComponent,
     AltertaskviewComponent,
+    EmployeeSearchComponent,
   ],
   imports: [
     BrowserModule,

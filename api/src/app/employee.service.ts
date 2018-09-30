@@ -5,6 +5,14 @@ import { Observable, of } from 'rxjs';
 import {MessageService} from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,38 +46,33 @@ private handleError<T> (operation = 'operation', result?: T) {
     this.messageService.add(`EmployeeService: fetched employee id=${id}`);
     return of(this.employees.find(Employee => Employee.id === id));
   }
-index(): number
-{
-	var max = -1;
-	for (var i = 0; i < this.employees.length; ++i) 
-	{
-		if(max < this.employees[i].id)
-		{
-			max = this.employees[i].id;
-		}
-	}
-	return max+1;
-}
+
 addEmployee(depId,fname,lname,dob): void {
-	var id = this.index();
-	console.log(id);
-  this.employees.push( {id: id, department_id: depId, last_name:lname, first_name: fname, birth_date: dob, show: false, modify: false } );
-  this.messageService.add('EmployeeService: employee with id '+id+' was added');
+  let o = {id: 0, department_id: depId, last_name:lname, first_name: fname, birth_date: dob, show: false, modify: false };
+  this.http.post(this.URL,o, httpOptions).subscribe(null, (p) => this.messageService.add('EmployeeService: problem with adding employee'), () => this.messageService.add('EmployeeService: employee with id '+o.id+' was added') );
+  this.employees.push(o);
 }
 delete(i): void{
-	for (var k = 0; k < this.employees.length; ++k) 
-	{
-		if(i == this.employees[k].id)
-		{
-			this.employees.splice(k,1);
-		}
-	}
-	this.messageService.add('EmployeeService: employee with id '+ i +' was deleted');
+  const url = `${this.URL}?id=${i}`;
+  console.log(url);
+	 this.http.delete(url, httpOptions).subscribe(null, (p) => this.messageService.add('EmployeeService: a problem with deleting employee with id '+ i), () => this.messageService.add('EmployeeService: employee with id '+ i +' was deleted') );
+   this.getEmployees();
+   this.employees.filter(x => x.id == i);
 }
 view(i): void{
 	this.messageService.add('EmployeeService: employee with id '+ i +' was viewed');
 }
 modify(i): void{
 	this.messageService.add('EmployeeService: employee with id '+ i +' was modified');
+}
+searchEmployees(term: string): Observable<Employee[]> {
+  if (!term.trim()) {
+    // if not search term, return empty hero array.
+    return of([]);
+  }
+  return this.http.get<Employee[]>(`${this.URL}/?id=${term}`).pipe(
+    tap(_ => this.messageService.add(`found employees matching "${term}"`)),
+    catchError(this.handleError<Employee[]>('searchEmployees', []))
+  );
 }
 }
