@@ -1,6 +1,12 @@
 <h4>List of employees</h4>
+
+    <form  id="filter">
+		<label>Search by name: </label>
+		<input type="text" [(ngModel)] = "term" name="term">
+	</form>
+
 <ul class="employees">
-<li *ngFor = "let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+<li *ngFor = "let employee of employees| filter: term" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
     <span class="badge">{{employee.id}}</span> {{employee.last_name}}
   </li>
 </ul>

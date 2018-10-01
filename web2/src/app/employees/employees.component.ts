@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { FilterPipe } from '../filter.pipe';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
