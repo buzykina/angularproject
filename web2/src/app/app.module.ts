@@ -24,12 +24,8 @@ import { TaskaddComponent } from './taskadd/taskadd.component';
 import { TaskmodifyComponent } from './taskmodify/taskmodify.component';
 import { TaskviewComponent } from './taskview/taskview.component';
 import { AltertaskviewComponent } from './altertaskview/altertaskview.component';
-<<<<<<< HEAD
 import { EmployeeSearchComponent } from './employee-search/employee-search.component';
-=======
 import { FilterPipe } from './filter.pipe';
-
->>>>>>> 1b3bea3c772338ff3cbe140c26ea51932c9ec5b7
 
 @NgModule({
   declarations: [
@@ -51,11 +47,9 @@ import { FilterPipe } from './filter.pipe';
     TaskmodifyComponent,
     TaskviewComponent,
     AltertaskviewComponent,
-<<<<<<< HEAD
     EmployeeSearchComponent,
-=======
     FilterPipe
->>>>>>> 1b3bea3c772338ff3cbe140c26ea51932c9ec5b7
+
   ],
   imports: [
     BrowserModule,
