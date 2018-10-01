@@ -19,6 +19,7 @@ import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodif
 import{HttpClientModule} from '@angular/common/http';
 import { Employeesview1Component } from './employeesview1/employeesview1.component';
 import { DepartmentsdashboardComponent } from './departmentsdashboard/departmentsdashboard.component';
+import { DepartmentssearchComponent } from './departmentssearch/departmentssearch.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { DepartmentsdashboardComponent } from './departmentsdashboard/department
     DepartmentsmodifyComponent,
     Employeesview1Component,
     DepartmentsdashboardComponent,
+    DepartmentssearchComponent,
   ],
   imports: [
     BrowserModule,
