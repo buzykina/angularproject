@@ -5,6 +5,7 @@ import { DepartmentsService } from '../departments.service';
 import { Department } from '../Department';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
+import { FilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-dashboard',

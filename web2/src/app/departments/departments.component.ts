@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Department } from '../Department';
 import { Variables } from '../Department';
 import { DepartmentsService } from '../departments.service';
+import { FilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-departments',
