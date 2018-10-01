@@ -16,6 +16,7 @@ implements OnInit {
 
   ngOnInit() {
   this.getEmployee();
+  this.employeeService.getDepartmentName();
   }
   getEmployee(): void {
   this.employeeService.getEmployees().subscribe(employees => this.employees = employees);

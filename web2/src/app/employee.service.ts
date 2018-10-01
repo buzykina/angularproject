@@ -3,6 +3,7 @@ import { Employee } from './employee';
 import { Employees } from './mock-employees';
 import { Observable, of } from 'rxjs';
 import {MessageService} from './message.service';
+import {Departments} from './departmentsList';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +32,24 @@ index(): number
 	}
 	return max+1;
 }
+getDepartmentName(): void{
+	for (var k = 0; k < Departments.length; ++k) 
+		{
+			for (var x = 0; x < Employees.length; ++x)
+			{
+				if(Employees[x].department_id == Departments[k].id)
+				{
+						Employees[x].department_name = Departments[k].name;
+				}
+			}
+			
+		}
+
+}
 addEmployee(depId,fname,lname,dob): void {
 	var id = this.index();
-  Employees.push( {id: id, department_id: depId, last_name:lname, first_name: fname, birth_date: dob, show: false, modify: false } );
+  Employees.push( {id: id, department_id: depId,department_name:"Dep doesn't exist yet", last_name:lname, first_name: fname, birth_date: dob, show: false, modify: false } );
+  this.getDepartmentName();
   this.messageService.add('EmployeeService: employee with id '+id+' was added');
 }
 delete(i): void{
