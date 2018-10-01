@@ -20,6 +20,7 @@ import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodif
 import{HttpClientModule} from '@angular/common/http';
 import { Employeesview1Component } from './employeesview1/employeesview1.component';
 import { DepartmentsdashboardComponent } from './departmentsdashboard/departmentsdashboard.component';
+import { DepartmentssearchComponent } from './departmentssearch/departmentssearch.component';
 import { TaskaddComponent } from './taskadd/taskadd.component';
 import { TaskmodifyComponent } from './taskmodify/taskmodify.component';
 import { TaskviewComponent } from './taskview/taskview.component';
@@ -43,13 +44,13 @@ import { FilterPipe } from './filter.pipe';
     DepartmentsmodifyComponent,
     Employeesview1Component,
     DepartmentsdashboardComponent,
+    DepartmentssearchComponent,
     TaskaddComponent,
     TaskmodifyComponent,
     TaskviewComponent,
     AltertaskviewComponent,
     EmployeeSearchComponent,
     FilterPipe
-
   ],
   imports: [
     BrowserModule,

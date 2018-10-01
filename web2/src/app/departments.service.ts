@@ -3,6 +3,7 @@ import { Department } from './Department';
 import { Departments } from './departmentsList';
 import { Observable, of } from 'rxjs';
 import { Employees } from './mock-employees';
+import { Employee } from './employee';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,26 @@ export class DepartmentsService {
 		{
 			Departments[k].employeesArr.length = 0; 
 		}
+	}
+
+	searchDepartments(term: string): Observable<Department[]> {
+
+	 	if (!term.trim()) {
+	    return of([]);
+	    }
+
+		return of(Departments.filter( x => x.name.startsWith(term)));
+
+	}
+
+	searchEmployees(term: string): Observable<Employee[]> {
+
+	 	if (!term.trim()) {
+	    return of([]);
+	    }
+
+		return of(Employees.filter( x => x.first_name.startsWith(term)));
+
 	}
 
 }
