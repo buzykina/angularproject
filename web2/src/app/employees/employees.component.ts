@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+
+
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
+
 export class EmployeesComponent 
 implements OnInit {
 	employees: Employee[];
@@ -25,6 +28,7 @@ implements OnInit {
     this.selectedEmployee.modify = false;
     this.selectedEmployee.show = false;
   }
+
  view()
  {
    this.selectedEmployee.show = true; 
@@ -32,18 +36,20 @@ implements OnInit {
    this.add = false;
    this.employeeService.view(this.selectedEmployee.id);
  }
+
 delete() { 
  this.employeeService.delete(this.selectedEmployee.id);
  this.selectedEmployee = null;
 } 
+
 add1():void{
-this.add =true;
-if(this.selectedEmployee != null)
-{
-  this.selectedEmployee.modify = false;
-    this.selectedEmployee.show = false;
-}
-}
+  this.add = true;
+  if(this.selectedEmployee != null)
+  {
+    this.selectedEmployee.modify = false;
+      this.selectedEmployee.show = false;
+  }
+  }
 modify()
 {
   this.selectedEmployee.modify = true; 
