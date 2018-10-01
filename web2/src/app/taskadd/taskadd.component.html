@@ -1,0 +1,32 @@
+<div class="display">
+	<h2>Add a task!</h2>
+	<form name="taskForm" ng-submit="addTask(taskID.value, taskName.value, depID.value, employeeName.value, deadline.value)">
+		<label>ID: </label>
+		<input type="number" placeholder="ID" name="taskID" #taskID required>
+
+		<br>
+
+		<label>Name: </label>
+		<input type="text" placeholder="Task Name" name="taskName" #taskName required>
+
+		<br>
+
+		<label>Department ID: </label>
+		<input type="number" placeholder="Department ID" name="depID" #depID required> 
+
+		<br>
+
+		<label>Employee Name: </label>
+		<input type="text" placeholder="Employee Name" name="employeeName" #employeeName required>
+
+		<br>
+
+		<label> Deadline:  </label>
+		<input type="date" placeholder="Deadline" name="deadline" #deadline required>
+		
+		<br>
+
+		<button class="btn" > Done </button>
+		
+	</form>
+</div>

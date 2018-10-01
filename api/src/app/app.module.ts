@@ -18,6 +18,7 @@ import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodif
 
 import{HttpClientModule} from '@angular/common/http';
 import { Employeesview1Component } from './employeesview1/employeesview1.component';
+import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { Employeesview1Component } from './employeesview1/employeesview1.compone
     DepartmentsviewComponent,
     DepartmentsmodifyComponent,
     Employeesview1Component,
+    EmployeeSearchComponent,
   ],
   imports: [
     BrowserModule,
