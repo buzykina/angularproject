@@ -18,10 +18,10 @@ export class EmployeeviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getHero();
+    this.getEmployee();
   }
 
-  getHero(): void {
+  getEmployee(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.employeeService.getEmployee(id)
       .subscribe(employee => this.employee = employee);
