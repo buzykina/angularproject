@@ -27,6 +27,7 @@ export class TasksComponent implements OnInit {
 constructor(private taskService: TaskService) { }
   
   ngOnInit() {
+    this.taskService.getDepName();
   }
 
 
@@ -61,7 +62,7 @@ constructor(private taskService: TaskService) { }
 
 
   addTask(ID,Name, depID, employeeName, deadline) {
-    this.tasks.push ({id: ID, name: Name, depID: depID, employeeName: employeeName, deadline: deadline, Modify: false, show: false});
+    this.tasks.push ({id: ID, name: Name, depID: depID,department_name: "it does not exist yet", employeeName: employeeName, deadline: deadline, Modify: false, show: false});
   }  
 
   
