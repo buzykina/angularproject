@@ -1,22 +1,18 @@
-<div class = "display" *ngIf="department">
-  <h3>Add a department</h3>
-  <label>Id:
-    <input #id />
-  </label>
+<div class = "display side1" *ngIf="department">
+  <h4>Add a department</h4>
+  <label>Id:</label>
+    <input placeholder="id" #id />
   <br>
-  <label>Name:
-    <input #name />
-  </label>
+  <label>Name:</label>
+    <input placeholder="name" #name />
   <br>
-  <label>Number of empoyees:
-    <input #numberofemployees />
-  </label>
+  <label>Number of empoyees:</label>
+    <input placeholder="number of employees" #numberofemployees />
   <br>
-  <label>Building:
-    <input #building />
-  </label>
+  <label>Building:</label>
+    <input placeholder="building" #building />
   <br>
   <button id="button" (click)="add(id.value,name.value,numberofemployees.value,building.value); id.value=''; name.value=''; numberofemployees.value=''; name.building='' ">
-    Add
+    Done
   </button>
 </div>

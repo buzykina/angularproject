@@ -17,16 +17,3 @@
   transition: background-color 0.5s;
 }
 
-
-.display {
-  display: inline-block;
-  margin-left: 30px;
-  font-size: 60%;
-  position: relative;
-  bottom: 100px;
-}
-
-h2 {
-  font-size: 27px;
-  margin: 0 auto;
-}

@@ -3,11 +3,20 @@
   color: white;
 }
 .tasks {
-  margin: 0 0 2em 0;
+  margin: 1em 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
   display:inline-block;
+}
+input[text],.modelinput{
+  margin-top: 2px;
+}
+#filter{
+      padding: 10px 20px 0 10px;
+}
+#h{
+  margin-left: 10px;
 }
 .tasks li {
   cursor: pointer;
@@ -21,8 +30,9 @@
 }
 .display{
   display: inline-block;
-  bottom: 165px;
   position: relative;
+  margin-left: 30px;
+  font-size: 13px;
 
 }
 .tasks li.selected:hover {
@@ -75,6 +85,14 @@
   display: inline-block;
   position: relative;
   bottom: 165px;
+}
+.side{
+  margin-left:100%;
+}
+.side1
+{
+  top: 30px;
+  padding-top: 0;
 }
 #addbtn{
 

@@ -3,6 +3,16 @@
   background-color: #CFD8DC !important;
   color: white;
 }
+h3 {
+  margin-bottom: 0;
+  padding: 0;
+}
+#h{
+  margin-left: 10px;
+}
+#filter{
+      padding: 10px 20px 0 10px;
+}
 .employees {
   margin: 0 0 2em 0;
   list-style-type: none;

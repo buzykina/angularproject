@@ -5,7 +5,7 @@ import { TaskService } from '../task.service';
 @Component({
   selector: 'app-taskadd',
   templateUrl: './taskadd.component.html',
-  styleUrls: ['./taskadd.component.css']
+  styleUrls: ['../tasks/tasks.component.css']
 })
 export class TaskaddComponent implements OnInit {
 @Input() task: Task;
@@ -16,6 +16,7 @@ export class TaskaddComponent implements OnInit {
   }
 
   addTask(ID,Name,depID,employeeName,deadline) : void {
+  	console.log("aa");
   	this.taskService.addTask(ID,Name,depID,employeeName,deadline);
   }
 

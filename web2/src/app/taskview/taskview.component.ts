@@ -8,7 +8,7 @@ import { TaskService } from '../task.service';
 @Component({
   selector: 'app-taskview',
   templateUrl: './taskview.component.html',
-  styleUrls: ['./taskview.component.css']
+  styleUrls: ['../tasks/tasks.component.css']
 })
 export class TaskviewComponent implements OnInit {
 @Input() task: Task;

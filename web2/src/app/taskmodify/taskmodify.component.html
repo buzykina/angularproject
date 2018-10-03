@@ -1,30 +1,26 @@
 
 <div class="display">
 	
-	<h2>{{task.name | uppercase}} Details </h2>
+	<h4>{{task.name | uppercase}} Details </h4>
 
 	<div>
-		<label>
-			<input [(ngModel)]="task.id" placeholder="name">
-		</label>
+  		<span>Id: </span>
+  			<input [(ngModel)]="task.id" placeholder="id" class = "modelinput">
 	</div>
 
 	<div>
-		<label>
-			<input [(ngModel)]="task.depID" placeholder="name">
-		</label>
+  		<span>Department id: </span>
+  			<input [(ngModel)]="task.depID" placeholder="department id" class = "modelinput">
 	</div>
 
 	<div>
-		<label>
-			<input [(ngModel)]="task.name" placeholder="name">
-		</label>
+  		<span>Task name: </span>
+  			<input [(ngModel)]="task.name" placeholder="name" class = "modelinput">
 	</div>
 
 	<div>
-		<label>
-			<input [(ngModel)]="task.deadline" placeholder="name">
-		</label>
+  		<span>Deadline: </span>
+  			<input [(ngModel)]="task.deadline"  placeholder="deadline" class = "modelinput">
 	</div>
 
 </div>

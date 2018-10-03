@@ -4,7 +4,7 @@ import { Task } from '../task';
 @Component({
   selector: 'app-taskmodify',
   templateUrl: './taskmodify.component.html',
-  styleUrls: ['./taskmodify.component.css']
+  styleUrls: ['../tasks/tasks.component.css']
 })
 export class TaskmodifyComponent implements OnInit {
 @Input() task: Task;
