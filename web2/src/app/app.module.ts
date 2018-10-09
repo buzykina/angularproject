@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -17,7 +17,9 @@ import { DepartmentsaddComponent } from './departmentsadd/departmentsadd.compone
 import { DepartmentsviewComponent } from './departmentsview/departmentsview.component';
 import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodify.component';
 
-import{HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 import { Employeesview1Component } from './employeesview1/employeesview1.component';
 import { DepartmentsdashboardComponent } from './departmentsdashboard/departmentsdashboard.component';
 import { TaskaddComponent } from './taskadd/taskadd.component';
@@ -58,7 +60,9 @@ import { FilterPipe } from './filter.pipe';
 
     HttpClientModule,
 
-    NgbModule
+    NgbModule,
+
+    
 
   ],
   providers: [],

@@ -61,7 +61,7 @@ constructor(private taskService: TaskService) { }
 
 
   addTask(ID,Name, depID, employeeName, deadline) {
-    this.tasks.push ({id: ID, name: Name, depID: depID, employeeName: employeeName, deadline: deadline, Modify: false, show: false});
+    this.tasks.push ({id: ID, depID: depID, employeeID: [],Employees:[],name: Name, deadline: deadline, Modify: false, show: false});
   }  
 
   
