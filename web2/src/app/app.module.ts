@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -27,6 +27,9 @@ import { TaskviewComponent } from './taskview/taskview.component';
 import { AltertaskviewComponent } from './altertaskview/altertaskview.component';
 import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 import { FilterPipe } from './filter.pipe';
+import { HttpModule } from '@angular/http';
+
+
 
 @NgModule({
   declarations: [
@@ -61,7 +64,9 @@ import { FilterPipe } from './filter.pipe';
 
     HttpClientModule,
 
-    NgbModule
+    NgbModule,
+    
+    HttpModule
 
   ],
   providers: [],

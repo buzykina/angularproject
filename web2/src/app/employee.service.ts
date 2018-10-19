@@ -1,72 +1,104 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
+import { Department } from './department';
 import { Employees } from './mock-employees';
 import { Observable, of } from 'rxjs';
 import {MessageService} from './message.service';
 import {Departments} from './departmentsList';
+import { map, tap} from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmployeeService {
 
-  constructor(private messageService: MessageService) { }
-  getEmployees(): Observable<Employee[]> {
-  this.messageService.add('EmployeeService: get an employee');
-  return of(Employees);
+  private employees:Employee[];
+  private handleError<T> (operation = 'operation', result?: T) {
+ 
+  return (error: any): Observable<T> => {
+ 
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+ 
+    // TODO: better job of transforming error for user consumption
+    this.messageService.add(`${operation} failed: ${error.message}`);
+ 
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
 }
- getEmployee(id: number): Observable<Employee> {
-    // TODO: send the message _after_ fetching the hero
-    this.getDepartmentName();
-    this.messageService.add(`EmployeeService: fetched employee id=${id}`);
-    return of(Employees.find(Employee => Employee.id === id));
-  }
-index(): number
-{
-	var max = -1;
-	for (var i = 0; i < Employees.length; ++i) 
-	{
-		if(max < Employees[i].id)
-		{
-			max = Employees[i].id;
-		}
-	}
-	return max+1;
-}
-getDepartmentName(): void{
-	for (var k = 0; k < Departments.length; ++k) 
-		{
-			for (var x = 0; x < Employees.length; ++x)
-			{
-				if(Employees[x].department_id == Departments[k].id)
-				{
-						Employees[x].department_name = Departments[k].name;
-				}
-			}
-			
-		}
+  
+  private myURL = 'http://i392854.hera.fhict.nl/api/employee';
 
+  constructor(private http : HttpClient, private messageService: MessageService) 
+  {  
+  }
+  
+  getEmployees(): Observable<Employee[]> {
+  const myurl = `${this.myURL}/read.php`;
+  this.messageService.add('EmployeeService: get an employee');
+  this.http.get<Employee[]>(myurl)
+    .subscribe(employees => {
+        this.employees = employees as Employee[];
+    });
+  return this.http.get<Employee[]>(myurl);
 }
+
+ getEmployee(id: number): Employee {
+    // TODO: send the message _after_ fetching the hero
+    for(var k = 0; k < this.employees.length; ++k)
+    {
+    	if(this.employees[k].id == id)
+    	{
+			return this.employees[k];
+    	}				
+    }
+    this.messageService.add(`EmployeeService: fetched employee id=${id}`);
+
+  }
+
 addEmployee(depId,fname,lname,dob): void {
-	var id = this.index();
-  Employees.push( {id: id, department_id: depId,department_name:"Dep doesn't exist yet", last_name:lname, first_name: fname, birth_date: dob, show: false, modify: false } );
-  this.getDepartmentName();
-  this.messageService.add('EmployeeService: employee with id '+id+' was added');
+  const url = `${this.myURL}/create.php`;
+  let employee = {id: 1, first_name: fname, department_id: depId, last_name: lname, birth_date:dob};
+  console.log(employee);
+  this.http.post<Employee>(url, employee, httpOptions).subscribe(res =>  console.log(res));
+  this.employees.push(employee);
+  this.messageService.add('EmployeeService: new employee was added');
 }
-delete(i): void{
-	for (var k = 0; k < Employees.length; ++k) 
-	{
-		if(i == Employees[k].id)
-		{
-			Employees.splice(k,1);
-		}
-	}
+delete(i): void {
+    const url = `${this.myURL}/delete.php`;
+	this.http.post(
+        url ,
+        { id: i },
+        httpOptions
+    ).subscribe(e => console.log(e));
 	this.messageService.add('EmployeeService: employee with id '+ i +' was deleted');
+	console.log(this.employees);
 }
+
 view(i): void{
 	this.messageService.add('EmployeeService: employee with id '+ i +' was viewed');
 }
-modify(i): void{
+modify(i,fname,lname,dob): void{
+	let employee = this.getEmployee(i);
+	employee.first_name = fname;
+	employee.last_name = lname;
+	employee.birth_date = dob;
+	 const url = `${this.myURL}/update.php`;
+    this.http.post(
+        url,
+        employee,httpOptions
+    ).subscribe(e => console.log(e));
 	this.messageService.add('EmployeeService: employee with id '+ i +' was modified');
 }
 }

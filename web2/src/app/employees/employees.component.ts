@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { FilterPipe } from '../filter.pipe';
@@ -12,45 +12,46 @@ implements OnInit {
 	employees: Employee[];
 	selectedEmployee: Employee;
   add: Boolean = false;
+  modify1: Boolean = false;
+  id: number = 0;
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
   this.getEmployee();
-  this.employeeService.getDepartmentName();
   }
   getEmployee(): void {
   this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
 }
 
- onSelect(employee: Employee): void {
-    this.selectedEmployee = employee;
-    this.selectedEmployee.modify = false;
-    this.selectedEmployee.show = false;
-  }
  view()
  {
-   this.selectedEmployee.show = true; 
-   this.selectedEmployee.modify = false; 
    this.add = false;
    this.employeeService.view(this.selectedEmployee.id);
  }
-delete() { 
- this.employeeService.delete(this.selectedEmployee.id);
- this.selectedEmployee = null;
+delete(id) { 
+ this.employeeService.delete(id);
+  for (var k = 0; k < this.employees.length; ++k) 
+  {
+    if(id == this.employees[k].id)
+    {
+      this.employees.splice(k,1);
+    }
+  }
 } 
 add1():void{
 this.add =true;
-if(this.selectedEmployee != null)
-{
-  this.selectedEmployee.modify = false;
-    this.selectedEmployee.show = false;
+this.modify1 = false;
 }
-}
-modify()
+modify(id: number)
 {
-  this.selectedEmployee.modify = true; 
-  this.selectedEmployee.show = false; 
   this.add = false;
-  this.employeeService.modify(this.selectedEmployee.id);
+  this.modify1 = true;
+  console.log(id);
+  this.id = id;  
+  this.selectedEmployee = this.employeeService.getEmployee(id);
+  console.log(this.selectedEmployee);
 }
+onSelect(department: Employee): void {
+    this.selectedEmployee = department;
+} 
 }

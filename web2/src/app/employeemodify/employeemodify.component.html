@@ -1,12 +1,40 @@
- <div class = "display side1">
-  <h4>Details of {{employee.first_name}} {{employee.last_name | uppercase}}: </h4>
-<div><span>id: </span>{{employee.id}}</div>
-<div><span>Department id: </span>{{employee.department_name}}</div>
-<div>
-  <span>First name: </span>
-  <input [(ngModel)]="employee.first_name" placeholder="first name" class = "modelinput">
+ <div class = "container">
+ 	  <h4>Details of {{employee.first_name}} {{employee.last_name | uppercase}}</h4>
+ 	  <div class="row">
+        <label for="show_id" class="col-2 col-form-label">Id:</label>
+        <div class="col-3">
+        <label for="id" class="col-2 col-form-label">{{employee.id}}</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="show_departmentName" class="col-2 col-form-label">Department Name:</label>
+        <div class="col-5">
+        <label for="departmentName" class="col-5 col-form-label">{{employee.department_name}}</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="firstname-input" class="col-2 col-form-label">First Name:</label>
+        <div class="col-3">
+          <input class="form-control" type="text" [(ngModel)]="employee.first_name" #firstName name="firstName">
+        </div>
+      </div>
+      <div class="row">
+        <label for="lastname-input" class="col-2 col-form-label">Last Name:</label>
+        <div class="col-3">
+          <input class="form-control" type="text" [(ngModel)]="employee.last_name" #lastName name="lastName">
+        </div>
+      </div>
+      <div class="row">
+        <label for="dob-input" class="col-2 col-form-label">DOB:</label>
+        <div class="col-3 input-group">
+          <input type="text" class="form-control" name="dob" [minDate]="{year: 1960, month: 1, day: 1}" [maxDate]="{year: 2002, month: 12, day: 31}" [(ngModel)]="employee.birth_date" #birthDate ngbDatepicker #dob="ngbDatepicker">
+          <button class="input-group-addon" (click)="dob.toggle()" type="button">
+            <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+          </button>
+        </div>
+      </div>
+      <button type="button" id = "btn" class="btn btn-success" (click)="modify(employee.id,firstName.value,lastName.value,birthDate.value);">Submit</button>
+      <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
 </div>
-<div><span>Last name: </span><input [(ngModel)]="employee.last_name" class = "modelinput" placeholder="last name"></div>
-<div><span>DOB: </span><input [(ngModel)]="employee.birth_date" class = "modelinput" placeholder="DOB mm/dd/yy"></div>
-<button class="janebtn side" (click)="employee.modify = false;">Done</button>
-  </div>

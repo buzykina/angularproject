@@ -3,25 +3,47 @@
     <form  id="filter">
 		<label>Filter employees by name: </label>
 		<input type="text" [(ngModel)] = "term" name="term">
-	</form>
+	</form><br>
 
-<ul class="employees">
-<li *ngFor = "let employee of employees| filter: term" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
-    <span class="badge">{{employee.id}}</span> {{employee.last_name}}
-  </li>
-</ul>
-<app-employeesview1 *ngIf="selectedEmployee && selectedEmployee.show" [employee]="selectedEmployee"></app-employeesview1>
-<app-employeemodify *ngIf="selectedEmployee && selectedEmployee.modify" [employee]="selectedEmployee"> </app-employeemodify>
-<app-employeeadd *ngIf="add" [employee]="selectedEmployee"> </app-employeeadd>
-<div>
-<button *ngIf="selectedEmployee" class="janebtn" (click)="view();">View details</button>
-<button *ngIf="selectedEmployee" class="janebtn" (click)="modify();">
-    Modify info
-  </button>
-<button *ngIf="selectedEmployee" class="janebtn" (click)="delete();">
-    Delete
-  </button>
-  <button class="janebtn" (click)="add1();">
-    Add
-  </button>
+<div class = "container">
+
+  <div class = "reglist">
+
+    <table class = "table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>DOB</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor = "let employee of employees| filter: term" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+          <th scope="row">{{employee.id}}</th>
+          <td>{{employee.first_name}}</td>
+          <td>{{employee.last_name}}</td>
+          <td>{{employee.birth_date | date}}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="modify(employee.id);">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="delete(employee.id);">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      
+    </table>
+
+  </div>
+
 </div>
+
+<div id = "add" class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="add1()">New</button>
+</div>
+<app-employeemodify *ngIf="modify1" [employee]="selectedEmployee"> </app-employeemodify>
+<app-employeeadd *ngIf="add"> </app-employeeadd>

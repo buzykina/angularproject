@@ -7,9 +7,7 @@ export const Employees: Employee[] = [
       department_name: null,
       first_name: 'Yevheniia',
         last_name: 'Buzykina',
-        birth_date: "1999/12/29",
-        show: false,
-        modify: false
+        birth_date: "1999/12/29"
       },
       { 
       id: 2,
@@ -17,9 +15,7 @@ export const Employees: Employee[] = [
       department_name:null,
       first_name: 'Mihai',
         last_name: 'Jizdan',
-        birth_date: "1999/03/12",
-        show: false,
-        modify: false
+        birth_date: "1999/03/12"
       },
       { 
       id: 3,
@@ -27,8 +23,6 @@ export const Employees: Employee[] = [
       department_name:null,
       first_name: 'Rahul',
         last_name: 'Annadurai',
-        birth_date: "1999/08/29",
-        show: false,
-        modify: false
+        birth_date: "1999/08/29"
       }
   ];

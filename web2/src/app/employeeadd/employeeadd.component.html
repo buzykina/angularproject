@@ -1,14 +1,41 @@
-<div class = "display side1">
-<h4>Add an employee</h4>
-  <form name="emploeeform" ng-submit="addEmployee(depId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">
-    <label>Department id:</label>
-     <input type="number" placeholder="department id" min="1" max = "30" name="depId" #depId required /><br>
-  	<label>First Name:</label>
-     <input type="text" placeholder="first name" name="empFName" #empFName required /><br>
-     <label>Last Name:</label>
-     <input type="text" placeholder="last name" name="empLName" #empLName required /><br>
-     <label>Birthday:</label>
-     <input type="text" placeholder="DOB mm/dd/yy" name="empDOB" #empDOB required /><br>
-     <button class="janebtn side" (click)="addEmployee(depId.value,empFName.value,empLName.value,empDOB.value)">Done</button>
-  </form>
+<div class = "container">
+    <h4>Adding new employee</h4>
+
+      <form name="emploeeform" ng-submit="addEmployee(depId.value,empFName.value,empLName.value,empGender.value,empDOB.value)">
+
+        <div class="row">
+          <label for="firstname-input" class="col-2 col-form-label">Department id:</label>
+          <div class="col-3">
+            <input class="form-control" type="number" placeholder="department id" min = "17" max = "20" name="depId" #depId required>
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="firstname-input" class="col-2 col-form-label">First Name:</label>
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="first name" name="empFName" #empFName required>
+          </div>
+        </div>
+        <div class="row">
+          <label for="lastname-input" class="col-2 col-form-label">Last Name:</label>
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="last name" name="empLName" #empLName required>
+          </div>
+        </div>
+        <div class="row">
+          <label for="dob-input" class="col-2 col-form-label">DOB:</label>
+          <div class="col-3 input-group">
+            <input type="text" class="form-control" name="dob" placeholder="yy/mm/dd" [minDate]="{year: 1960, month: 1, day: 1}" [maxDate]="{year: 2002, month: 12, day: 31}" name="empDOB" #empDOB required ngbDatepicker #dob="ngbDatepicker">
+            <button class="input-group-addon" (click)="dob.toggle()" type="button">
+              <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+            </button>
+          </div>
+        </div>
+        <button type="button" id = "btn" class="btn btn-success" (click)="addEmployee(depId.value,empFName.value,empLName.value,empDOB.value);">Add</button>
+        <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+      </form>
 </div>
+
+
+
+

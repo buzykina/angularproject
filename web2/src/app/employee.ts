@@ -6,6 +6,4 @@ export class Employee {
   first_name: string;
   last_name: string;
   birth_date: string;
-  show:boolean;
-  modify:boolean;
 }
