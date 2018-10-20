@@ -11,7 +11,7 @@ import { FilterPipe } from '../filter.pipe';
 })
 export class TasksComponent implements OnInit {
  
-  	tasks = TASKS;
+  	tasks: Task[] = [];
     variable = false;
 
   	selectedTask : Task;
@@ -27,6 +27,7 @@ export class TasksComponent implements OnInit {
 constructor(private taskService: TaskService) { }
   
   ngOnInit() {
+  this.getTasks();
   }
 
 
@@ -64,7 +65,9 @@ constructor(private taskService: TaskService) { }
     this.tasks.push ({id: ID, depID: depID, employeeID: [],Employees:[],name: Name, deadline: deadline, Modify: false, show: false});
   }  
 
-  
+  getTasks():void {
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+  }
 
 }
 
