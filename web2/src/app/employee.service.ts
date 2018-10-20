@@ -69,7 +69,7 @@ export class EmployeeService {
 
 addEmployee(depId,fname,lname,dob): void {
   const url = `${this.myURL}/create.php`;
-  let employee = {id: 1, first_name: fname, department_id: depId, last_name: lname, birth_date:dob};
+  let employee = {id: 1, first_name: fname,department_name:"something", department_id: depId, last_name: lname, birth_date:dob};
   console.log(employee);
   this.http.post<Employee>(url, employee, httpOptions).subscribe(res =>  console.log(res));
   this.employees.push(employee);
