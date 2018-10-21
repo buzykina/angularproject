@@ -11,7 +11,7 @@ import { FilterPipe } from '../filter.pipe';
 })
 export class TasksComponent implements OnInit {
  
-  	tasks = TASKS;
+  	tasks: Task[] = [];
     variable = false;
 
   	selectedTask : Task;
@@ -27,7 +27,7 @@ export class TasksComponent implements OnInit {
 constructor(private taskService: TaskService) { }
   
   ngOnInit() {
-    this.taskService.getDepName();
+    this.getTasks();
   }
 
 
@@ -54,17 +54,26 @@ constructor(private taskService: TaskService) { }
     }
   }
 
-  delete() : void {
-    this.taskService.delete(this.selectedTask.id);
-    this.selectedTask = null;
+  delete(id) : void {
+    this.taskService.delete(id);
+    for (var x = 0; x<this.tasks.length; ++x)
+    {
+      if ( id == this.tasks[x].id)
+      {
+        this.tasks.splice(x,1);
+      }
+    }
   }
 
 
 
   addTask(ID,Name, depID, employeeName, deadline) {
-    this.tasks.push ({id: ID, name: Name, depID: depID,department_name: "it does not exist yet", employeeName: employeeName, deadline: deadline, Modify: false, show: false});
+    this.tasks.push ({id: ID, depID: depID, employeeID: [],Employees: [],name: Name, deadline: deadline, Modify: false, show: false});
   }  
 
+  getTasks(): void {
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+  }
   
 
 }
