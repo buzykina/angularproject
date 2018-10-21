@@ -11,13 +11,12 @@ export class FilterPipe implements PipeTransform {
    	return tasks.filter(function(task) {
    		if(task.hasOwnProperty('name'))
    		{
-   		return task.name.toLowerCase().includes(term.toLowerCase());
+   		 return task.name.toLowerCase().includes(term.toLowerCase());
    		}
    		else if(task.hasOwnProperty('first_name'))
    		{
-   		return task.first_name.toLowerCase().includes(term.toLowerCase());
+   		 return task.first_name.toLowerCase().includes(term.toLowerCase());
    		}
-
    	})
   }
 

@@ -3,6 +3,10 @@ h3 {
   margin-bottom: 0;
   padding: 0;
 }
+
+.clickable{
+  cursor: pointer;
+}
 #filter{
 
     padding: 10px 20px 0 10px;
