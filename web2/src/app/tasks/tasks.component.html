@@ -26,7 +26,7 @@
 
 	<button *ngIf="selectedTask" class="btn" (click)="modify();">Modify info</button>
 
-	<button *ngIf="selectedTask" class="btn" (click)="delete();">Delete</button>
+	<button *ngIf="selectedTask" class="btn" (click)="delete(selectedTask.id);">Delete</button>
 
 	<button class="btn" (click)="add1();"> Add</button>
 
