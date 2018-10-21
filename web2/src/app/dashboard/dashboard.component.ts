@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { DepartmentsService } from '../departments.service';
-import { Department } from '../Department';
+import { Department } from '../department';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
 import { FilterPipe } from '../filter.pipe';

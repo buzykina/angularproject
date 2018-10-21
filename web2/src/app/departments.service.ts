@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Department } from './Department';
+import { Department } from './department';
 import { Departments } from './departmentsList';
 import { Observable, of } from 'rxjs';
 import { Employees } from './mock-employees';

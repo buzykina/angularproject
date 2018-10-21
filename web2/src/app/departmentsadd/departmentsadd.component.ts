@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Department } from '../Department';
-import { Variables } from '../Department';
+import { Department } from '../department';
+import { Variables } from '../department';
 import { DepartmentsService } from '../departments.service';
 
 @Component({

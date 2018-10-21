@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Department } from '../Department';
+import { Department } from '../department';
 
 @Component({
   selector: 'app-departmentsmodify',

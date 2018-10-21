@@ -1,4 +1,4 @@
-import { Department } from './Department';
+import { Department } from './department';
 
 export const Departments: Department[] = [
   { id: 1, name: 'Dep1', building: 'R1', nrofemployees:120,show: false, modify: false, employeesArr:[]},
