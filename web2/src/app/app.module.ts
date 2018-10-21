@@ -18,7 +18,6 @@ import { DepartmentsviewComponent } from './departmentsview/departmentsview.comp
 import { DepartmentsmodifyComponent } from './departmentsmodify/departmentsmodify.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { Employeesview1Component } from './employeesview1/employeesview1.component';
 import { DepartmentsdashboardComponent } from './departmentsdashboard/departmentsdashboard.component';
