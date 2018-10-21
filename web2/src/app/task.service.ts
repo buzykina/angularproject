@@ -3,23 +3,44 @@ import { Task } from './task';
 import { TASKS } from './mock-tasks';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service'; 
-import {Departments} from './departmentsList';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+
+import { Departments } from './departmentsList';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+  
+  private taskUrl = 'http://i875395.hera.fhict.nl/api/392854/task';
 
-  constructor(private messageService: MessageService) { }
+  constructor(private http: HttpClient,private messageService: MessageService) { }
+
+  private log(message: string)
+  {
+    this.messageService.add(`TaskService: ${message}`);
+  }
 
   getTasks(): Observable<Task[]> {
   	this.messageService.add('Tasks added! Choose one!');
-  		return of (TASKS);
+  		//return of (TASKS);
+
+    return this.http.get<Task[]>(this.taskUrl)
+      .pipe(
+        catchError(this.handleError('getTasks', []))
+      );
   }
 
   getTask(id: number): Observable<Task> {
   	this.messageService.add(`TaskService: fetched task id=${id}`);
-    return of(TASKS.find(task => task.id === id));
+    //return of(TASKS.find(task => task.id === id));
+
+    const url = `${ this.taskUrl }/${ id }`;
+    return this.http.get<Task>(url).pipe(
+      tap(_=> this.log(`fetched task id = ${id}`)),
+      catchError(this.handleError<Task>(`getTask id=${id}`))
+    );
   }
 
   getDepName(): void{
@@ -27,16 +48,13 @@ export class TaskService {
     {
       for (var x = 0; x < TASKS.length; ++x)
       {
-        if(TASKS[x].depID== Departments[k].id)
-        {
-            TASKS[x].department_name = Departments[k].name;
-        }
+       
       }
     }
   }
 
-  addTask(ID,name,depID,empName,deadline) : void {
-  	TASKS.push({id: ID, depID: depID, department_name: "it does not exist yet", employeeName: empName, name: name, deadline: deadline, show:false, Modify: false })
+  addTask(ID,Name,depID,empName,deadline) : void {
+  	TASKS.push({id: ID, depID: depID, employeeID: [],Employees:[], name: name, deadline: deadline, show:false, Modify: false })
   	this.messageService.add('New task with id' + ID + ' was added');
   }
 
@@ -51,17 +69,23 @@ export class TaskService {
   }
 
   delete(i) : void {
-  	for (var x = 0; x<TASKS.length; ++x)
-  	{
-  		if ( i == TASKS[x].id)
-  		{
-  			TASKS.splice(x,1);
-  		}
-  	}
   	this.messageService.add('The task with the id ' + i + ' has been deleted successfully!');
   }
 
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any ) : Observable<T> => {
 
+        //TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead;
+
+        //TODO: better job of transforming errors for user consumption
+        this.log(`${operation} failed: ${error.message}`);
+
+        //Let the app keep running by returning an empty result
+        return of ( result as T);
+
+    }
+  }
 
 
 }

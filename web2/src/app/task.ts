@@ -1,11 +1,12 @@
-export class Task {
-	id: number;
-	depID: number;
-	department_name: string;
-	employeeName: string;
-	name: string;
-	deadline: Date;
-	show: boolean;
-	Modify: boolean;
-}
+import { Employee } from './employee';
 
+export class Task {
+		id: number;
+		depID: number;
+		employeeID: number[];
+		Employees: Employee[];
+		name: string;
+		deadline: Date;
+		show: boolean;
+		Modify: boolean;
+}
