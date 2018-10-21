@@ -1,11 +1,32 @@
-<div class = "display" *ngIf="department && department.modify">
-	
-	<h4>Details of {{department.name | uppercase}}: </h4>
-	  <div><span>id: </span>{{department.id}}</div>
-	  <div><span>Name: </span><input [(ngModel)]="department.name" placeholder="Name"></div>
-	  <div><span>Number of Employees: </span><input [(ngModel)]="department.nrofemployees" placeholder="Number Of Employees"></div>
-	  <div><span>Building: </span><input [(ngModel)]="department.building" placeholder="Building"></div>
-	  <button id="btn" (click)="department.modify = false;">Done</button>
+
+
+<div class = "container">
+ 	  <h4>Details of {{department.name | uppercase}}</h4>
+ 	  <div class="row">
+        <label for="show_id" class="col-2 col-form-label">Id:</label>
+        <div class="col-3">
+        <label for="id" class="col-2 col-form-label">{{department.id}}</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="firstname-input" class="col-2 col-form-label">Name:</label>
+        <div class="col-3">
+          <input [(ngModel)]="department.name" placeholder="Name" #name>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="lastname-input" class="col-2 col-form-label">Building:</label>
+        <div class="col-3">
+          <input [(ngModel)]="department.building" placeholder="Building" #building>
+        </div>
+      </div>
+
+      <button type="button" id = "btn" class="btn btn-success" (click)="modify(department.id,name.value,building.value);">Submit</button>
+      
+      <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
 </div>
+
 
 

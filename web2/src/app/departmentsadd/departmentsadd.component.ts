@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Department } from '../department';
 import { Variables } from '../department';
 import { DepartmentsService } from '../departments.service';
+import { DepartmentsComponent } from '../departments/departments.component';
 
 @Component({
   selector: 'app-departmentsadd',
@@ -16,14 +17,19 @@ export class DepartmentsaddComponent implements OnInit {
   add: false
   };
 
-  constructor(private departmentsService: DepartmentsService) { }
+  constructor(private departmentsService: DepartmentsService, private departmentsComponent: DepartmentsComponent) { }
 
   ngOnInit() {
   }
 
-  add(id: number,name: string,building: string,nrofemployees: number): void {
-  this.departmentsService.addDepartment(id,name,building,nrofemployees);
-	this.variables.add = false;
+  add(name: string,building: string): void {
+  this.departmentsService.addDepartment(name,building);
+	this.departmentsComponent.add1 = false;
   }
+
+  onCancel() {
+    this.departmentsComponent.add1 = false;
+  }
+
 
 }

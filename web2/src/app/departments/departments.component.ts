@@ -12,7 +12,8 @@ import { FilterPipe } from '../filter.pipe';
 export class DepartmentsComponent implements OnInit {
 
   departments: Department[];
-  
+  CanModify: Boolean = false;
+  add1: Boolean = false;
 
   selectedDepartment: Department;
 
@@ -24,12 +25,10 @@ export class DepartmentsComponent implements OnInit {
 
   ngOnInit() {
   this.getDepartments();
-  this.departmentsService.resetEmployees();
-  this.departmentsService.addEmployeesToDepartments();
   }
 
 delete(i) {  
- this.departmentsService.delete(this.selectedDepartment.id);
+ this.departmentsService.delete(i);
  this.selectedDepartment = null;
 } 
 
@@ -40,6 +39,18 @@ onSelect(department: Department): void {
 getDepartments(): void{
   this.departmentsService.getDepartments()
     .subscribe(Departments => this.departments = Departments);
+  this.departmentsService.resetEmployees();
+  this.departmentsService.addEmployeesToDepartments();
+}
+
+modify(){
+  this.CanModify = true;
+  this.selectedDepartment.modify = true;
+}
+
+addView(){
+  this.add1 = true;
+  this.CanModify = false;
 }
 
 }

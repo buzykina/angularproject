@@ -4,38 +4,54 @@
 <form  id="filter">
 		<label>Filter departments by name: </label>
 		<input type="text" [(ngModel)] = "term" name="term">
-</form>
+</form><br>
 
-<ul class = "employees">
-  <li *ngFor = "let department of departments | filter: term" [class.selected]="department === selectedDepartment" (click)="onSelect(department); selectedDepartment.modify = false; selectedDepartment.show = false; variables.add = false;">
-  	<span class="badge">{{department.id}}</span> {{department.name}}
-  </li>
-</ul>
+<div class = "container">
+	
+	<div class = "reglist">
+		
+		<table class = "table table-striped">
+			
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Building</th>
+					<th>Employees</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
 
-<app-departmentsview [department]="selectedDepartment"></app-departmentsview>
+			<tbody>
+				<tr *ngFor = "let department of departments | filter: term" [class.selected]="department === selectedDepartment">
+					<th scope="row">{{department.id}}</th>
+					<td>{{department.name}}</td>
+					<td>{{department.building}}</td>
+					<td><li *ngFor = "let employee of department.employeesArr"> {{employee.first_name}} </li></td>
+					<td>
+		            	<button type="button" class="btn btn-info" (click)="onSelect(department);modify(); selectedDepartment.modify = true;">Edit</button>
+		          	</td>
+		          	<td>
+		            	<button type="button" class="btn btn-danger" (click)="delete(department.id);">Delete</button>
+		          	</td>
+				</tr>
+			</tbody>
 
-<app-departmentsadd  [department]="variables.add"></app-departmentsadd>
+		</table>
 
-<app-departmentsmodify  [department]="selectedDepartment"></app-departmentsmodify> 
+	</div>
 
+</div>
 
+<div id = "add" class="text-right">
+	<button class="btn btn-primary" (click)="addView();">
+	 New
+	</button>
+</div>
 
+<app-departmentsmodify *ngIf="CanModify"  [department]="selectedDepartment"></app-departmentsmodify> 
+<app-departmentsadd  *ngIf="add1"></app-departmentsadd>
 
-<br>
-
-<button class="janebtn" (click)="variables.add = true; selectedDepartment.modify = false; selectedDepartment.show = false;">
- Add
-</button>
-
-
- <button *ngIf="selectedDepartment" class="janebtn" (click)="selectedDepartment.show = true; selectedDepartment.modify = false; variables.add = false;">View details</button>
- 
-<button *ngIf="selectedDepartment" class="janebtn" (click)="selectedDepartment.modify = true; selectedDepartment.show = false; variables.add = false;">
-    Modify info
-</button>
-
-<button *ngIf="selectedDepartment" class="janebtn" (click)="delete(selectedDepartment);">
-    Delete
-  </button>
 
 

@@ -26,8 +26,7 @@ export class DepartmentsdashboardComponent implements OnInit {
 
   getDepartment(): void{
   const id = +this.route.snapshot.paramMap.get('id');
-  this.departmentsService.getSpecificDepartment(id)
-  	.subscribe(department => this.department = department);
+  this.department = this.departmentsService.getSpecificDepartment(id);
 
   }
 
