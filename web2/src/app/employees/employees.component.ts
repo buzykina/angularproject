@@ -58,6 +58,7 @@ add1():void{
 this.add =true;
 this.modify1 = false;
 }
+
 modify(id: number)
 {
   this.add = false;

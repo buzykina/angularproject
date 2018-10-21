@@ -20,16 +20,16 @@ $employee = new Employee($db);
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
 // set employee property values
+$employee->id = 11;
 $employee->department_id = $data->department_id;
+$employee->department_name = "Human";
 $employee->first_name = $data->first_name;
 $employee->last_name = $data->last_name;
 $employee->birth_date = $data->birth_date;
  
 // create the employee
 if($employee->create()){
-    echo '{';
-        echo '"message": "Employee was created."';
-    echo '}';
+   echo json_encode($employee);
 }
  
 // if unable to create the employee, tell the user

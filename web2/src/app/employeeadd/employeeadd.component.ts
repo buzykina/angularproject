@@ -16,8 +16,8 @@ export class EmployeeaddComponent implements OnInit {
   ngOnInit() {
   }
   addEmployee(depId,fname,lname,dob): void {
-  	console.log(depId,fname,lname,dob);
-  this.employeeService.addEmployee(depId,fname,lname,dob);
+  console.log(depId,fname,lname,dob);
+  this.employeeService.addEmployee(depId,fname,lname,dob).subscribe(x => {this.empComponent.employees.push(x); console.log(x);});
   this.empComponent.add = false;
 }
 onCancel() {

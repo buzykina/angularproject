@@ -2,7 +2,7 @@
 
   <h2>Log-files</h2>
   <div *ngFor='let message of messageService.messages'> {{message}} </div>
-  <button class="clear"
+  <button  class="btn btn-primary" id = "btn"
           (click)="messageService.clear()">Clear history</button>
 
 </div>

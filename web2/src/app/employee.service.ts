@@ -67,13 +67,12 @@ export class EmployeeService {
 
   }
 
-addEmployee(depId,fname,lname,dob): void {
+addEmployee(depId,fname,lname,dob): Observable<Employee> {
   const url = `${this.myURL}/create.php`;
   let employee = {id: 1, first_name: fname,department_name:"something", department_id: depId, last_name: lname, birth_date:dob};
   console.log(employee);
-  this.http.post<Employee>(url, employee, httpOptions).subscribe(res =>  console.log(res));
-  this.employees.push(employee);
   this.messageService.add('EmployeeService: new employee was added');
+  return this.http.post<Employee>(url, employee, httpOptions);
 }
 delete(i): void {
     const url = `${this.myURL}/delete.php`;
