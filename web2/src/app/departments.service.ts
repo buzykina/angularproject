@@ -49,6 +49,9 @@ constructor(private http : HttpClient, private messageService: MessageService, p
   	const myurl = `${this.myURL}/department/read.php`;
   	this.messageService.add('DepartmentsService: Getting Departments');
   	this.http.get<Department[]>(myurl).subscribe(departments => {this.departments = departments as Department[];});
+
+    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
+
   	return this.http.get<Department[]>(myurl);
   }
 
@@ -69,8 +72,6 @@ constructor(private http : HttpClient, private messageService: MessageService, p
   		let d = {name:namee, building:buildingg};
   		this.http.post<Department>(url,d,httpOptions).subscribe(res =>  console.log(res));
   		this.messageService.add('DepartmentsService: new department was added');
-  		this.departments.length = 0;
-  		this.getDepartments();
   }
 
 
@@ -92,7 +93,7 @@ constructor(private http : HttpClient, private messageService: MessageService, p
     console.log(department);
 
     const url = `${this.myURL}/department/update.php`;
-    this.http.post<Department>(url,{id:idd,name:namee,building:buildingg},httpOptions).subscribe(res =>  console.log(res));
+    this.http.post<Department>(url,department,httpOptions).subscribe(res =>  console.log(res));
       this.messageService.add('DepartmentsService: Department was edited');
       this.departments.length = 0;
       this.getDepartments();
@@ -100,32 +101,34 @@ constructor(private http : HttpClient, private messageService: MessageService, p
 
 	addEmployeesToDepartments(): void{
 
-    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
 
-    console.log(this.employees[1].id);
+    if(this.departments && this.employees){
 
-    this.getDepartments()
-    .subscribe(departments => this.departments = departments);
+      console.log(this.employees);
 
-		for (var k = 0; k < this.departments.length; ++k) 
-		{
-			for (var x = 0; x < this.employees.length; ++x)
-			{
-				if(this.employees[x].department_name == this.departments[k].name)
-				{
-						this.departments[k].employeesArr.push({id:this.employees[x].id, department_id:this.employees[x].department_id,department_name:this.employees[x].department_name,last_name:this.employees[x].last_name,first_name:this.employees[x].first_name,birth_date:this.employees[x].birth_date });
-				}
-			}
-			
-		}
+      console.log(this.departments);
+
+      for (var k = 0; k < this.departments.length; ++k) 
+      {
+        for (var x = 0; x < this.employees.length; ++x)
+        {
+          if(this.employees[x].department_name == this.departments[k].name)
+          {
+              this.departments[k].employeesArr.push({id:this.employees[x].id, department_id:this.employees[x].department_id,department_name:this.employees[x].department_name,last_name:this.employees[x].last_name,first_name:this.employees[x].first_name,birth_date:this.employees[x].birth_date });
+          }
+        }
+        
+      }
+
+    }
 
 	}
 
 	resetEmployees():void{
-		for (var k = 0; k < this.departments.length; ++k) 
-		{
-			this.departments[k].employeesArr.length = 0; 
-		}
+    for (var k = 0; k < this.departments.length; ++k) 
+    {
+      this.departments[k].employeesArr.length = 0; 
+    }
 	}
 
 	searchDepartments(term: string): Observable<Department[]> {

@@ -23,7 +23,7 @@ export class DepartmentsaddComponent implements OnInit {
   }
 
   add(name: string,building: string): void {
-  this.departmentsService.addDepartment(name,building);
+  this.departmentsService.addDepartment(name,building)
 	this.departmentsComponent.add1 = false;
   }
 
