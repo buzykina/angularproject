@@ -1,28 +1,12 @@
-<div class="display">
-	<h4>{{task.name | uppercase}} Details</h4>
 
-	<div>
-		<span>ID: </span>{{task.id}}
-	</div>
-
-	<div>
-	  	<span>Name: </span>{{task.name}}
-	</div>
-
-	<div>
-		<span>Department ID: </span>{{task.depID}}
-	</div>
-
-	<div>
-		<span>Department Name: </span>{{task.department_name}}
-	</div>
-	
-	<div>
-		<span>Person responsible: </span>{{task.employeeName}}
-	</div>
-
-	<div>
-		<span>Deadline: </span> {{task.deadline}}
-	</div>
+ <div class = "display">
+  <h4>Details of {{task.name | uppercase}}: </h4>
+<div><span>Id: </span>{{task.id}}</div>
+<div><span>Department name: </span>{{task.department_name}}</div>
+<div>
+  <span>Person responsible: </span>{{task.employee_name}}
 </div>
-	<button class="btn" (click)="goBack()"> go back </button>
+<div><span>Name: </span>{{task.name}}</div>
+<div><span>Deadline: </span>{{task.deadline | date}}</div>
+  </div>
+<button class = "janebtn" (click)="goBack()">go back</button>

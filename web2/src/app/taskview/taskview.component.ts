@@ -24,7 +24,7 @@ export class TaskviewComponent implements OnInit {
 
   getTask(): void {
   	const id = +this.route.snapshot.paramMap.get('id');
-  	this.taskService.getTask(id).subscribe(task => this.task = task);
+  	this.task = this.taskService.getTask(id);
   }
 
   goBack() : void {

@@ -1,26 +1,41 @@
+ <div class = "container">
+    <h4>Details of {{task.name | uppercase}}</h4>
+    <div class="row">
+        <label for="show_id" class="col-2 col-form-label">Id:</label>
+        <div class="col-3">
+        <label for="id" class="col-2 col-form-label">{{task.id}}</label>
+        </div>
+      </div>
 
-<div class="display">
-	
-	<h4>{{task.name | uppercase}} Details </h4>
+        <div class="row">
+          <label for="name-input" class="col-2 col-form-label">Employee id:</label>
+          <div class="col-3">
+            <input class="form-control" type="number" placeholder="employee id" min = "81" max = "83" name="empId" #empId required>
+          </div>
+        </div>
 
-	<div>
-  		<span>Id: </span>
-  			<input [(ngModel)]="task.id" placeholder="id" class = "modelinput">
-	</div>
-
-	<div>
-  		<span>Department id: </span>
-  			<input [(ngModel)]="task.depID" placeholder="department id" class = "modelinput">
-	</div>
-
-	<div>
-  		<span>Task name: </span>
-  			<input [(ngModel)]="task.name" placeholder="name" class = "modelinput">
-	</div>
-
-	<div>
-  		<span>Deadline: </span>
-  			<input [(ngModel)]="task.deadline"  placeholder="deadline" class = "modelinput">
-	</div>
-
+        <div class="row">
+          <label for="name" class="col-2 col-form-label">Name:</label>
+          <div class="col-3">
+            <input class="form-control" [(ngModel)]="task.name" type="text" placeholder="Name" name="name" #name required>
+          </div>
+        </div>
+     
+        <div class="row">
+          <label for="deadline-input" class="col-2 col-form-label">Deadline:</label>
+          <div class="col-3 input-group">
+            <input type="text" class="form-control" name="dob" placeholder="yy/mm/dd" [minDate]="{year: 2008, month: 1, day: 1}" [maxDate]="{year: 2018, month: 10, day: 22}" [(ngModel)]="task.deadline" name="empDOB" #empDOB required ngbDatepicker #dob="ngbDatepicker">
+            <button class="input-group-addon" (click)="dob.toggle()" type="button" style = "cursor: pointer;">
+              📅
+            </button>
+          </div>
+        </div>
+         <button type="button" id = "btn" class="btn btn-success" (click)="modify(task.id,task.depID,task.employeeID,task.name, task.deadline);">Submit</button>
+      <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
 </div>
+
+
+
+
+
+

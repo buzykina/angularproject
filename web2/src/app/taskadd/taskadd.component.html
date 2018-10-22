@@ -1,32 +1,45 @@
-<div class="display">
-	<h4>Add a task!</h4>
-	<form name="taskForm" ng-submit="addTask(taskID.value, taskName.value, depID.value, employeeName.value, deadline.value)">
-		<label>Id: </label>
-		<input type="number" placeholder="ID" name="taskID" #taskID required>
+ <div class = "container">
+    <h4>Adding a task!</h4>
 
-		<br>
+      <form name="taskform" ng-submit="addTask(depId.value,empId.value,name.value,deadline.value);">
 
-		<label>Name: </label>
-		<input type="text" placeholder="Task Name" name="taskName" #taskName required>
+        <div class="row">
+          <label for="department_id-input" class="col-2 col-form-label">Department id:</label>
+          <div class="col-3">
+            <input class="form-control" type="number" placeholder="department id" min = "17" max = "20" name="depId" #depId required>
+          </div>
+        </div>
 
-		<br>
+        <div class="row">
+          <label for="name-input" class="col-2 col-form-label">Employee id:</label>
+          <div class="col-3">
+            <input class="form-control" type="number" placeholder="employee id" min = "81" max = "83" name="empId" #empId required>
+          </div>
+        </div>
 
-		<label>Department ID: </label>
-		<input type="number" placeholder="Department ID" name="depID" #depID required> 
-
-		<br>
-
-		<label>Employee Name: </label>
-		<input type="text" placeholder="Employee Name" name="employeeName" #employeeName required>
-
-		<br>
-
-		<label> Deadline:  </label>
-		<input type="date" placeholder="Deadline" name="deadline" #deadline required>
-		
-		<br>
-
-		<button class="btn side" (click)="addTask(taskID.value, taskName.value, depID.value, employeeName.value, deadline.value)"> Done </button>
-		
-	</form>
+        <div class="row">
+          <label for="name" class="col-2 col-form-label">Name:</label>
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="Name" name="name" #name required>
+          </div>
+        </div>
+     
+        <div class="row">
+          <label for="deadline-input" class="col-2 col-form-label">Deadline:</label>
+          <div class="col-3 input-group">
+            <input type="text" class="form-control" name="dob" placeholder="yy/mm/dd" [minDate]="{year: 2008, month: 1, day: 1}" [maxDate]="{year: 2018, month: 10, day: 22}" name="empDOB" #empDOB required ngbDatepicker #dob="ngbDatepicker">
+            <button class="input-group-addon" (click)="dob.toggle()" type="button" style = "cursor: pointer;">
+              📅
+            </button>
+          </div>
+        </div>
+        <button type="button" id = "btn" class="btn btn-success" (click)="addTask(depId.value,empId.value,name.value,dob.value);">Add</button>
+        <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+      </form>
 </div>
+
+
+
+
+
+

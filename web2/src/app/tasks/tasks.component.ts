@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
-import { TASKS } from '../mock-tasks';
 import { TaskService } from '../task.service';
 import { FilterPipe } from '../filter.pipe';
 
@@ -10,77 +9,171 @@ import { FilterPipe } from '../filter.pipe';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
- 
-  	tasks: Task[] = [];
-    variable = false;
 
-  	selectedTask : Task;
+  tasks: Task[] = [];
+  selectedTask: Task;
+  add: Boolean = false;
+  modify1: Boolean = false;
+  Name: string;
+  Name_Asc: boolean;
+  Id: string;
+  Id_Asc: boolean;
+  Employee_Name: string;
+  Employee_Name_Asc: boolean;
+  Department_Name: string;
+  Department_Name_Asc: boolean;
+  id: number = 0;
+  constructor(private taskService: TaskService) { }
 
-    add: boolean = false;
-
-  	onSelect(task : Task) {
-  		this.selectedTask = task;
-      this.selectedTask.show = false;
-      this.selectedTask.Modify = false;
-  	}
-  
-constructor(private taskService: TaskService) { }
-  
   ngOnInit() {
-    this.getTasks();
+  this.getTask();
+  this.Name = "Name";
+  this.Name_Asc = true;
+  this.Id = "#";
+  this.Id_Asc = true;
+  this.Employee_Name = "Employee Name";
+  this.Employee_Name_Asc = true;
+  this.Department_Name = "Department Name";
+  this.Department_Name_Asc = true;
   }
-
-
-  view() : void {
-    this.selectedTask.show = true;
-    this.selectedTask.Modify = false;
-    this.add = false;
-    this.taskService.view(this.selectedTask.id);
-  }
-
-  modify() : void {
-    this.selectedTask.show = false;
-    this.selectedTask.Modify = true;
-    this.add = false;
-    this.taskService.modify(this.selectedTask.id);
-  }
-
-  add1() : void {
-    this.add = true;
-    if (this.selectedTask != null)
-    {
-      this.selectedTask.show = false;
-      this.selectedTask.Modify = false;
-    }
-  }
-
-  delete(id) : void {
-    this.taskService.delete(id);
-    for (var x = 0; x<this.tasks.length; ++x)
-    {
-      if ( id == this.tasks[x].id)
-      {
-        this.tasks.splice(x,1);
-      }
-    }
-  }
-
-
-
-  addTask(ID,Name, depID, employeeName, deadline) {
-    this.tasks.push ({id: ID, depID: depID, employeeID: [],Employees: [],name: Name, deadline: deadline, Modify: false, show: false});
-  }  
-
-  getTasks(): void {
-    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
-  }
-  
-
+  getTask(): void {
+  this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
 }
 
+ view()
+ {
+   this.add = false;
+   this.taskService.view(this.selectedTask.id);
+ }
+delete(id) { 
+ this.taskService.delete(id);
+  for (var k = 0; k < this.tasks.length; ++k) 
+  {
+    if(id == this.tasks[k].id)
+    {
+      this.tasks.splice(k,1);
+    }
+  }
+} 
+add1():void{
+this.add =true;
+this.modify1 = false;
+}
 
+modify(id: number)
+{
+  this.add = false;
+  this.modify1 = true;
+  console.log(id);
+  this.id = id;  
+  this.selectedTask = this.taskService.getTask(id);
+  console.log(this.selectedTask);
+}
+onSelect(department: Task): void {
+    this.selectedTask = department;
+} 
+sortbyTaskName(): void{
   
+  this.Employee_Name = "Employee Name";
+  this.Employee_Name_Asc = true;
+  this.Department_Name = "Department Name";
+  this.Department_Name_Asc = true;
+  if(this.Name_Asc == true)
+  {
+    this.Name = "Name ↑";
+    this.Name_Asc = false;
+    this.tasks.sort(function(a: Task, b:Task){
+      if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+      if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+      return 0;
+    });
+  }
+  else 
+  {
+    this.Name = "Name ↓";
+    this.Name_Asc = true;
+    this.tasks.sort(function(a: Task, b: Task){
+      if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+      if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+      return 0;
+    });
+  }
+}
+sortbyEmployeeName(): void{
+  this.Id = "#";
+  this.Id_Asc = true;
+  this.Name = "Name";
+  this.Name_Asc = true;
+  this.Department_Name = "Department Name";
+  this.Department_Name_Asc = true;
+  if(this.Employee_Name_Asc == true)
+  {
+    this.Employee_Name = "Employee Name ↑";
+    this.Employee_Name_Asc = false;
+    this.tasks.sort(function(a: Task, b:Task){
+      if(a.employee_name.toLowerCase() < b.employee_name.toLowerCase()) return -1;
+      if(a.employee_name.toLowerCase() > b.employee_name.toLowerCase()) return 1;
+      return 0;
+    });
+  }
+  else 
+  {
+    this.Employee_Name = "Employee Name ↓";
+    this.Employee_Name_Asc = true;
+    this.tasks.sort(function(a: Task, b:Task){
+      if(a.employee_name.toLowerCase() < b.employee_name.toLowerCase()) return 1;
+      if(a.employee_name.toLowerCase() > b.employee_name.toLowerCase()) return -1;
+      return 0;
+    });
+  }
+}
+sortbyDepartmentName(): void{
+  this.Id = "#";
+  this.Id_Asc = true;
+  this.Name = "Name";
+  this.Name_Asc = true;
+  this.Employee_Name = "Employee Name";
+  this.Employee_Name_Asc = true;
+  if(this.Department_Name_Asc == true)
+  {
+    this.Department_Name = "Department Name ↑";
+    this.Department_Name_Asc = false;
+    this.tasks.sort(function(a: Task, b:Task){
+      if(a.department_name.toLowerCase() < b.department_name.toLowerCase()) return -1;
+      if(a.department_name.toLowerCase() > b.department_name.toLowerCase()) return 1;
+      return 0;
+    });
+  }
+  else 
+  {
+    this.Department_Name = "Department Name ↓";
+    this.Department_Name_Asc = true;
+    this.tasks.sort(function(a: Task, b:Task){
+      if(a.department_name.toLowerCase() < b.department_name.toLowerCase()) return 1;
+      if(a.department_name.toLowerCase() > b.department_name.toLowerCase()) return -1;
+      return 0;
+    });
+  }
+}
+sortbyId(): void{
+  this.Employee_Name = "Employee Name";
+  this.Employee_Name_Asc = true;
+  this.Name = "Name";
+  this.Name_Asc = true;
+  this.Department_Name = "Department Name";
+  this.Department_Name_Asc = true;
+  if(this.Id_Asc == true)
+  {
+    this.Id = "# ↑";
+    this.Id_Asc = false;
+    this.tasks.sort();
+  }
+  else 
+  {
+    this.Id = "# ↓";
+    this.Id_Asc = true;
+    this.tasks.sort().reverse();
+  }
+}
 
-
-  
- 
+}

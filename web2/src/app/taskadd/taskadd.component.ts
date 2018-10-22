@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
+import { TasksComponent } from '../tasks/tasks.component';
+
 
 @Component({
   selector: 'app-taskadd',
@@ -10,14 +12,18 @@ import { TaskService } from '../task.service';
 export class TaskaddComponent implements OnInit {
 @Input() task: Task;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private taskComponent: TasksComponent) { }
 
   ngOnInit() {
   }
 
-  addTask(ID,Name,depID,employeeName,deadline) : void {
+  addTask(depID,employeeid,Name,deadline) : void {
   	console.log("aa");
-  	this.taskService.addTask(ID,Name,depID,employeeName,deadline);
+    this.taskComponent.add = false;
+    this.taskService.addTask(depID,employeeid,deadline, Name).subscribe(x => {this.taskComponent.tasks.push(x); console.log(x);})
+  }
+  onCancel() {
+    this.taskComponent.add = false;
   }
 
 }

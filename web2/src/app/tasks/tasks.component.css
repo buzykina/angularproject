@@ -1,71 +1,54 @@
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
-}
-.tasks {
-  margin: 1em 0 2em 0;
-  list-style-type: none;
+/* HeroesComponent's private CSS styles */
+h3 {
+  margin-bottom: 0;
   padding: 0;
-  width: 15em;
-  display:inline-block;
 }
-input[text],.modelinput{
-  margin-top: 2px;
+
+.clickable{
+  cursor: pointer;
+}
+#New{
+  margin:20px;
 }
 #filter{
-      padding: 10px 20px 0 10px;
+
+    padding: 10px 20px 0 10px;
+    float: right;
+    margin: 20px 0 20px 0;
 }
 #h{
   margin-left: 10px;
 }
-.tasks li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 2.5em;
-  border-radius: 4px;
+#add
+{
+  margin: 40px 14% 0 0;
+}
+
+h4{
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+.row{
+      margin: 20px 0 20px 0;
+
+}
+
+.side1
+{
+  top: 30px;
+  padding-top: 0;
+}
+#btn{
+  margin: 20px 10px;
 }
 .display{
   display: inline-block;
-  position: relative;
-  margin-left: 30px;
-  font-size: 13px;
-
+  bottom: 160px;
 }
-.tasks li.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
-}
-.tasks li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.tasks.text {
-  position: relative;
-  top: -3px;
-}
-.tasks .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 3em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-.btn{
-      display: inline;
+.janebtn{
       cursor: pointer;
-      margin: 0px 20px 0px 10px;
+      margin: 0px 20px 20px 10px;
       border-radius: 5px;
       padding: 0 10px;
       background-color: transparent;
@@ -74,28 +57,14 @@ input[text],.modelinput{
       font-size: 110%;
       transition: background-color 0.5s ;
 }
-
-.btn:hover {
+.janebtn:hover {
   background-color: #607D8B;
   color: white;
   transition: background-color 0.5s;
 }
 
-.taskForm {
-  display: inline-block;
-  position: relative;
-  bottom: 165px;
-}
-.side{
-  margin-left:100%;
-}
-.side1
-{
-  top: 30px;
-  padding-top: 0;
-}
-#addbtn{
-
-}
-
-
+/*
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/

@@ -3,10 +3,9 @@ import { Employee } from './employee';
 export class Task {
 		id: number;
 		depID: number;
-		employeeID: number[];
-		Employees: Employee[];
-		name: string;
+		department_name: string;
+		employeeID: number;
+		employee_name: string;
 		deadline: Date;
-		show: boolean;
-		Modify: boolean;
+		name: string;
 }

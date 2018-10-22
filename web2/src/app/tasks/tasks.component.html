@@ -1,33 +1,51 @@
+<h4 id="h">List of tasks</h4>
 
-	<h4 id= "h"> List of tasks </h4>
-
-
-	<form  id="filter">
+    <form  id="filter">
 		<label>Filter tasks by name: </label>
 		<input type="text" [(ngModel)] = "term" name="term">
-	</form>
+	</form><br>
 
+<div class = "container">
 
-	<ul class="tasks">
-		<li *ngFor="let task of tasks | filter: term"  [class.selected]="task === selectedTask" (click)="onSelect(task)">
-			<span class="badge">{{task.id}}</span> {{task.name}}
-		</li>
-	</ul>
+  <div class = "reglist">
 
+    <table class = "table table-striped">
+      <thead>
+        <tr>
+          <th class = "clickable" [innerHTML]="Id" (click)="sortbyId()"></th>
+          <th class = "clickable" [innerHTML]="Department_Name" (click)="sortbyDepartmentName()"></th>
+          <th class = "clickable" [innerHTML]="Employee_Name" (click)="sortbyEmployeeName()"></th>
+          <th class = "clickable" [innerHTML]="Name" (click)="sortbyTaskName()"></th>
+          <th>Deadline</th>
+          <th></th>
+          <th>To sort click on the column name</th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <tr *ngFor = "let task of tasks| filter: term" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+          <th scope="row">{{task.id}}</th>
+          <td>{{task.department_name}}</td>
+          <td>{{task.employee_name}}</td>
+          <td>{{task.name}}</td>
+          <td>{{task.deadline | date}}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="modify(task.id);">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="delete(task.id);">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      
+    </table>
 
-	<app-taskmodify *ngIf="selectedTask && selectedTask.Modify" [task]= "selectedTask"></app-taskmodify>
-	<app-altertaskview *ngIf="selectedTask && selectedTask.show" [task]="selectedTask"></app-altertaskview>
-	<app-taskadd *ngIf="add" [task] = "selectedTask"></app-taskadd>
+  </div>
 
-	<div>
-		
-	<button *ngIf="selectedTask" class="btn" (click)="view();"> View Details</button>
+</div>
 
-	<button *ngIf="selectedTask" class="btn" (click)="modify();">Modify info</button>
-
-	<button *ngIf="selectedTask" class="btn" (click)="delete(selectedTask.id);">Delete</button>
-
-	<button class="btn" (click)="add1();"> Add</button>
-
-	</div>
+<div id = "add" class="text-right">
+      <button type="submit" id= "New" class="btn btn-primary" (click)="add1()">New</button>
+</div>
+<app-taskmodify *ngIf="modify1" [task]="selectedTask"> </app-taskmodify>
+<app-taskadd *ngIf="add"> </app-taskadd>
